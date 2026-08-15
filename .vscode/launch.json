@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Windows Forms App",
+      "type": "clr",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/Debug/Student_Management_Syestem.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "internalConsole",
+      "preLaunchTask": "build"
+    }
+  ]
+}
