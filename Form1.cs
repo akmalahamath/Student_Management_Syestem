@@ -36,5 +36,26 @@ namespace Student_Management_Syestem
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string email = textBox1.Text;
+            string password = textBox2.Text;
+            try
+            {
+                if (email == "admin" && password == "1234") 
+                {
+                    MessageBox.Show("Login Successful");
+                }
+                else
+                {
+                    throw new Exception("Please Enter Valid Credentials");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
