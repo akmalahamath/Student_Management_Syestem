@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Student_Management_Syestem
 {
-    public partial class Form1 : Form
+    public partial class Loginform : Form
     {
-        public Form1()
+        public Loginform()
         {
             InitializeComponent();
         }
@@ -46,6 +46,9 @@ namespace Student_Management_Syestem
                 if (email == "admin" && password == "1234") 
                 {
                     MessageBox.Show("Login Successful");
+                    Dashboardform login= new Dashboardform();
+                    login.Show();
+                    this.Hide();
                 }
                 else
                 {
