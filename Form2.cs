@@ -16,5 +16,10 @@ namespace Student_Management_Syestem
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
