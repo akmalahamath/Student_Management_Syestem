@@ -44,13 +44,14 @@
             this.lblCourseCount = new System.Windows.Forms.Label();
             this.lblEntrollmentCount = new System.Windows.Forms.Label();
             this.lblPaymentCount = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnStudents = new System.Windows.Forms.Button();
+            this.btnCourses = new System.Windows.Forms.Button();
+            this.btnEnrollment = new System.Windows.Forms.Button();
+            this.btnPayments = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,19 +72,19 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(767, -33);
+            this.pictureBox1.Location = new System.Drawing.Point(719, -57);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(221, 178);
+            this.pictureBox1.Size = new System.Drawing.Size(315, 210);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel1.BackColor = System.Drawing.Color.LimeGreen;
             this.panel1.Controls.Add(this.lblStudentCount);
             this.panel1.Controls.Add(this.lblStudentTitle);
-            this.panel1.Location = new System.Drawing.Point(338, 151);
+            this.panel1.Location = new System.Drawing.Point(343, 165);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(243, 140);
             this.panel1.TabIndex = 4;
@@ -91,30 +92,30 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel2.BackColor = System.Drawing.Color.LimeGreen;
             this.panel2.Controls.Add(this.lblCourseCount);
             this.panel2.Controls.Add(this.lblCourseTitle);
-            this.panel2.Location = new System.Drawing.Point(638, 154);
+            this.panel2.Location = new System.Drawing.Point(678, 168);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(240, 137);
             this.panel2.TabIndex = 5;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel3.BackColor = System.Drawing.Color.LimeGreen;
             this.panel3.Controls.Add(this.lblEntrollmentCount);
             this.panel3.Controls.Add(this.lblEntrollmentTitle);
-            this.panel3.Location = new System.Drawing.Point(338, 332);
+            this.panel3.Location = new System.Drawing.Point(343, 346);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(243, 140);
             this.panel3.TabIndex = 5;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel4.BackColor = System.Drawing.Color.LimeGreen;
             this.panel4.Controls.Add(this.lblPaymentCount);
             this.panel4.Controls.Add(this.lblPaymentTitle);
-            this.panel4.Location = new System.Drawing.Point(638, 332);
+            this.panel4.Location = new System.Drawing.Point(678, 346);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(240, 137);
             this.panel4.TabIndex = 6;
@@ -173,7 +174,7 @@
             // 
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentCount.ForeColor = System.Drawing.Color.Blue;
+            this.lblStudentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblStudentCount.Location = new System.Drawing.Point(78, 71);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(92, 45);
@@ -184,7 +185,7 @@
             // 
             this.lblCourseCount.AutoSize = true;
             this.lblCourseCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourseCount.ForeColor = System.Drawing.Color.Blue;
+            this.lblCourseCount.ForeColor = System.Drawing.Color.Navy;
             this.lblCourseCount.Location = new System.Drawing.Point(78, 68);
             this.lblCourseCount.Name = "lblCourseCount";
             this.lblCourseCount.Size = new System.Drawing.Size(92, 45);
@@ -195,7 +196,7 @@
             // 
             this.lblEntrollmentCount.AutoSize = true;
             this.lblEntrollmentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrollmentCount.ForeColor = System.Drawing.Color.Blue;
+            this.lblEntrollmentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblEntrollmentCount.Location = new System.Drawing.Point(78, 72);
             this.lblEntrollmentCount.Name = "lblEntrollmentCount";
             this.lblEntrollmentCount.Size = new System.Drawing.Size(92, 45);
@@ -206,88 +207,149 @@
             // 
             this.lblPaymentCount.AutoSize = true;
             this.lblPaymentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentCount.ForeColor = System.Drawing.Color.Blue;
+            this.lblPaymentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblPaymentCount.Location = new System.Drawing.Point(81, 67);
             this.lblPaymentCount.Name = "lblPaymentCount";
             this.lblPaymentCount.Size = new System.Drawing.Size(92, 45);
             this.lblPaymentCount.TabIndex = 19;
             this.lblPaymentCount.Text = "1500";
             // 
-            // button1
+            // btnStudents
             // 
-            this.button1.Location = new System.Drawing.Point(19, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 58);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStudents.BackColor = System.Drawing.Color.Navy;
+            this.btnStudents.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnStudents.FlatAppearance.BorderSize = 2;
+            this.btnStudents.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnStudents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnStudents.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudents.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnStudents.Location = new System.Drawing.Point(29, 207);
+            this.btnStudents.Name = "btnStudents";
+            this.btnStudents.Size = new System.Drawing.Size(261, 57);
+            this.btnStudents.TabIndex = 8;
+            this.btnStudents.Text = "STUDENT";
+            this.btnStudents.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnCourses
             // 
-            this.button2.Location = new System.Drawing.Point(19, 217);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(224, 58);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCourses.BackColor = System.Drawing.Color.Navy;
+            this.btnCourses.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCourses.FlatAppearance.BorderSize = 2;
+            this.btnCourses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnCourses.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourses.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnCourses.Location = new System.Drawing.Point(29, 277);
+            this.btnCourses.Name = "btnCourses";
+            this.btnCourses.Size = new System.Drawing.Size(261, 57);
+            this.btnCourses.TabIndex = 9;
+            this.btnCourses.Text = "COURSE";
+            this.btnCourses.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnEnrollment
             // 
-            this.button3.Location = new System.Drawing.Point(19, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(224, 58);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEnrollment.BackColor = System.Drawing.Color.Navy;
+            this.btnEnrollment.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnEnrollment.FlatAppearance.BorderSize = 2;
+            this.btnEnrollment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnEnrollment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnEnrollment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnrollment.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnEnrollment.Location = new System.Drawing.Point(29, 355);
+            this.btnEnrollment.Name = "btnEnrollment";
+            this.btnEnrollment.Size = new System.Drawing.Size(261, 57);
+            this.btnEnrollment.TabIndex = 10;
+            this.btnEnrollment.Text = "ENTROLL";
+            this.btnEnrollment.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnPayments
             // 
-            this.button4.Location = new System.Drawing.Point(19, 376);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(224, 58);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPayments.BackColor = System.Drawing.Color.Navy;
+            this.btnPayments.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPayments.FlatAppearance.BorderSize = 2;
+            this.btnPayments.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnPayments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnPayments.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayments.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnPayments.Location = new System.Drawing.Point(29, 430);
+            this.btnPayments.Name = "btnPayments";
+            this.btnPayments.Size = new System.Drawing.Size(261, 57);
+            this.btnPayments.TabIndex = 11;
+            this.btnPayments.Text = "PAYMENT";
+            this.btnPayments.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnReports
             // 
-            this.button5.Location = new System.Drawing.Point(19, 453);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(224, 58);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnReports.BackColor = System.Drawing.Color.Navy;
+            this.btnReports.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnReports.FlatAppearance.BorderSize = 2;
+            this.btnReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnReports.Location = new System.Drawing.Point(29, 506);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(261, 57);
+            this.btnReports.TabIndex = 12;
+            this.btnReports.Text = "REPORT";
+            this.btnReports.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnDashboard
             // 
-            this.button6.Location = new System.Drawing.Point(19, 524);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(224, 58);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDashboard.BackColor = System.Drawing.Color.Navy;
+            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDashboard.FlatAppearance.BorderSize = 2;
+            this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnDashboard.Location = new System.Drawing.Point(29, 137);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(261, 57);
+            this.btnDashboard.TabIndex = 13;
+            this.btnDashboard.Text = "DASHBOARD";
+            this.btnDashboard.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnLogout
             // 
-            this.button7.Location = new System.Drawing.Point(828, 503);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(129, 79);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnLogout.BackColor = System.Drawing.Color.Navy;
+            this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLogout.FlatAppearance.BorderSize = 2;
+            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Lime;
+            this.btnLogout.Location = new System.Drawing.Point(795, 515);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(156, 59);
+            this.btnLogout.TabIndex = 14;
+            this.btnLogout.Text = "LOGOUT";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label1.Location = new System.Drawing.Point(529, 527);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(249, 32);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Logged in as: Admin";
             // 
             // Dashboardform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 594);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnDashboard);
+            this.Controls.Add(this.btnReports);
+            this.Controls.Add(this.btnPayments);
+            this.Controls.Add(this.btnEnrollment);
+            this.Controls.Add(this.btnCourses);
+            this.Controls.Add(this.btnStudents);
             this.Controls.Add(this.lbldashboard);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -333,12 +395,13 @@
         private System.Windows.Forms.Label lblCourseCount;
         private System.Windows.Forms.Label lblEntrollmentCount;
         private System.Windows.Forms.Label lblPaymentCount;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnStudents;
+        private System.Windows.Forms.Button btnCourses;
+        private System.Windows.Forms.Button btnEnrollment;
+        private System.Windows.Forms.Button btnPayments;
+        private System.Windows.Forms.Button btnReports;
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label label1;
     }
 }
