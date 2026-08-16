@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Student_Management_Syestem
 {
-    public partial class Form1 : Form
+    public partial class Loginform : Form
     {
-        public Form1()
+        public Loginform()
         {
             InitializeComponent();
         }
