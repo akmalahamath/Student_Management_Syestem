@@ -21,5 +21,13 @@ namespace Student_Management_Syestem
         {
 
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Loginform login = new Loginform();
+            login.Show();
+            this.Hide();
+            
+        }
     }
 }

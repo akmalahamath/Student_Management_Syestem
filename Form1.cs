@@ -46,8 +46,8 @@ namespace Student_Management_Syestem
                 if (email == "admin" && password == "1234") 
                 {
                     MessageBox.Show("Login Successful");
-                    Dashboardform home = new Dashboardform();
-                    home.Show();
+                    Dashboardform login= new Dashboardform();
+                    login.Show();
                     this.Hide();
                 }
                 else
