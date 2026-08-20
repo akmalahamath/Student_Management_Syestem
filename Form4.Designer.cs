@@ -32,11 +32,13 @@
             // 
             // Student
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 474);
-            this.MaximumSize = new System.Drawing.Size(891, 529);
-            this.MinimumSize = new System.Drawing.Size(891, 521);
+            this.ClientSize = new System.Drawing.Size(978, 591);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1000, 647);
+            this.MinimumSize = new System.Drawing.Size(1000, 637);
             this.Name = "Student";
             this.Text = "Form4";
             this.ResumeLayout(false);
