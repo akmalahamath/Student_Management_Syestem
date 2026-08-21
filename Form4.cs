@@ -16,5 +16,17 @@ namespace Student_Management_Syestem
         {
             InitializeComponent();
         }
+
+        private void Student_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Dashboardform dashboard = new Dashboardform();
+           dashboard.Show();
+            this.Hide();
+        }
     }
 }
