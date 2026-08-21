@@ -29,5 +29,12 @@ namespace Student_Management_Syestem
             this.Hide();
             
         }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            Student studentpage = new Student();
+            studentpage.Show();
+            this.Hide();
+        }
     }
 }
