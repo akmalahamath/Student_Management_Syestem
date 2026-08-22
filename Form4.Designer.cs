@@ -38,6 +38,10 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -49,15 +53,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Student_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Full_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -172,6 +172,50 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 585);
             this.panel1.TabIndex = 5;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Yellow;
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(299, 501);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(83, 62);
+            this.button4.TabIndex = 27;
+            this.button4.Text = "CLEAR";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Yellow;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(205, 501);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(83, 62);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "DELETE";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Yellow;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(109, 501);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 62);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "UPDATE";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(11, 501);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 62);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "ADD";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // textBox5
             // 
@@ -292,17 +336,6 @@
             this.panel2.Size = new System.Drawing.Size(535, 585);
             this.panel2.TabIndex = 24;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(11, 501);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 62);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "ADD";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -348,39 +381,6 @@
             this.Phone.MinimumWidth = 8;
             this.Phone.Name = "Phone";
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(109, 501);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 62);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "UPDATE";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Yellow;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(205, 501);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(83, 62);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "DELETE";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Yellow;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(299, 501);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 62);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "CLEAR";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -395,7 +395,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(997, 800);
-            this.MinimumSize = new System.Drawing.Size(997, 641);
+            this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "Student";
             this.Load += new System.EventHandler(this.Student_Load);
             this.toolStrip1.ResumeLayout(false);
