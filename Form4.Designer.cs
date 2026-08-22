@@ -58,6 +58,8 @@
             this.Full_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -330,6 +332,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Navy;
+            this.panel2.Controls.Add(this.textBox6);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(428, 137);
             this.panel2.Name = "panel2";
@@ -350,11 +354,11 @@
             this.Full_Name,
             this.Email,
             this.Phone});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 22);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 134);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(511, 543);
+            this.dataGridView1.Size = new System.Drawing.Size(511, 431);
             this.dataGridView1.TabIndex = 0;
             // 
             // Student_ID
@@ -381,6 +385,28 @@
             this.Phone.MinimumWidth = 8;
             this.Phone.Name = "Phone";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gold;
+            this.label8.Location = new System.Drawing.Point(70, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 30);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Search";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.Black;
+            this.textBox6.Location = new System.Drawing.Point(66, 50);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(415, 44);
+            this.textBox6.TabIndex = 28;
+            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -403,6 +429,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -440,5 +467,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label8;
     }
 }

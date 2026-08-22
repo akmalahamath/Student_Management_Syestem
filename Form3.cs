@@ -28,5 +28,10 @@ namespace Student_Management_Syestem
             login.Show();
             this.Hide();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
