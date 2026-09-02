@@ -235,9 +235,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(30, 330);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 25);
+            this.label7.Size = new System.Drawing.Size(90, 25);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Phone Number";
+            this.label7.Text = "Password";
             // 
             // textBox3
             // 
