@@ -320,9 +320,9 @@
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Lime;
-            this.btnLogout.Location = new System.Drawing.Point(772, 629);
+            this.btnLogout.Location = new System.Drawing.Point(772, 635);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(172, 86);
+            this.btnLogout.Size = new System.Drawing.Size(172, 80);
             this.btnLogout.TabIndex = 14;
             this.btnLogout.Text = "LOGOUT";
             this.btnLogout.UseVisualStyleBackColor = false;
