@@ -67,5 +67,10 @@ namespace Student_Management_Syestem
             sign.Show();
             this.Hide();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
