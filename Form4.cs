@@ -23,6 +23,10 @@ namespace Student_Management_Syestem
         {
 
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -42,13 +46,14 @@ namespace Student_Management_Syestem
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Student (FullName, Email, Phone, Address) VALUES (@Fullname, @email, @phone, @address)";
+                string query = "INSERT INTO Student (Studentid,FullName, Email, Phone, Address) VALUES (@Studentid,@Fullname, @email, @phone, @address)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Fullname", textBox1.Text);
-                    command.Parameters.AddWithValue("@email", textBox2.Text);
-                    command.Parameters.AddWithValue("@phone", textBox3.Text);
-                    command.Parameters.AddWithValue("@address", textBox4.Text);
+                    command.Parameters.AddWithValue("@Studentid", textBox1.Text);
+                    command.Parameters.AddWithValue("@Fullname", textBox2.Text);
+                    command.Parameters.AddWithValue("@email", textBox3.Text);
+                    command.Parameters.AddWithValue("@phone", textBox4.Text);
+                    command.Parameters.AddWithValue("@address", textBox5.Text);
                     command.ExecuteNonQuery();
 
                 }
