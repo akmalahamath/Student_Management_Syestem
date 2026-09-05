@@ -33,7 +33,29 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string connectionString =
+       @"Data Source=(LocalDB)\MSSQLLocalDB;
+        AttachDbFilename=|DataDirectory|\Database1.mdf;
+        Integrated Security=True;
+        Connect Timeout=30";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "INSERT INTO Student (FullName, Email, Phone, Address) VALUES (@Fullname, @email, @phone, @address)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Fullname", textBox1.Text);
+                    command.Parameters.AddWithValue("@email", textBox2.Text);
+                    command.Parameters.AddWithValue("@phone", textBox3.Text);
+                    command.Parameters.AddWithValue("@address", textBox4.Text);
+                    command.ExecuteNonQuery();
+
+                }
+                connection.Close();
+                MessageBox.Show("Student added successfully!");
+
+            }
         }
     }
 }
