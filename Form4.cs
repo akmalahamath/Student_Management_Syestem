@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Student_Management_Syestem
 {
@@ -27,6 +29,11 @@ namespace Student_Management_Syestem
             Dashboardform dashboard = new Dashboardform();
            dashboard.Show();
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
