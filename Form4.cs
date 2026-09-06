@@ -25,13 +25,13 @@ namespace Student_Management_Syestem
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Dashboardform dashboard = new Dashboardform();
-           dashboard.Show();
+            dashboard.Show();
             this.Hide();
         }
 
