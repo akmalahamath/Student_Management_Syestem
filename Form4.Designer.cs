@@ -1,4 +1,4 @@
-namespace Student_Management_Syestem
+﻿namespace Student_Management_Syestem
 {
     partial class Student
     {
@@ -185,7 +185,6 @@ namespace Student_Management_Syestem
             this.button4.TabIndex = 27;
             this.button4.Text = "CLEAR";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -197,7 +196,6 @@ namespace Student_Management_Syestem
             this.button3.TabIndex = 26;
             this.button3.Text = "DELETE";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -209,7 +207,6 @@ namespace Student_Management_Syestem
             this.button2.TabIndex = 25;
             this.button2.Text = "UPDATE";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -355,7 +352,6 @@ namespace Student_Management_Syestem
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(415, 44);
             this.textBox6.TabIndex = 28;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label8
             // 
@@ -388,8 +384,6 @@ namespace Student_Management_Syestem
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(511, 431);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Student_ID
             // 
