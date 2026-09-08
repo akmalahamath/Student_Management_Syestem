@@ -14,6 +14,7 @@ namespace Student_Management_Syestem
 {
     public partial class Student : Form
     {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
         public Student()
         {
             InitializeComponent();
@@ -37,11 +38,6 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string connectionString =
-       @"Data Source=(LocalDB)\MSSQLLocalDB;
-        AttachDbFilename=|DataDirectory|\Database1.mdf;
-        Integrated Security=True;
-        Connect Timeout=30";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
