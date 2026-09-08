@@ -58,6 +58,7 @@ namespace Student_Management_Syestem
 
                 connection.Close();
                 MessageBox.Show("Sign up successfully!");
+
             }
         }
     }
