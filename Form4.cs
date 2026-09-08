@@ -22,7 +22,7 @@ namespace Student_Management_Syestem
 
         private void Student_Load(object sender, EventArgs e)
         {
-
+            LoadStudents();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -50,13 +50,57 @@ namespace Student_Management_Syestem
                     command.Parameters.AddWithValue("@email", textBox3.Text);
                     command.Parameters.AddWithValue("@phone", textBox4.Text);
                     command.Parameters.AddWithValue("@address", textBox5.Text);
+
                     command.ExecuteNonQuery();
 
                 }
                 connection.Close();
                 MessageBox.Show("Student added successfully!");
 
+                LoadStudents();
+
             }
+        }
+      
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void LoadStudents()
+        {
+            try
+            {
+                using (SqlConnection connection =
+                    new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Student";
+
+                    SqlDataAdapter adapter =
+                        new SqlDataAdapter(query, connection);
+
+                    DataTable dt = new DataTable();
+
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
         }
     }
 }
