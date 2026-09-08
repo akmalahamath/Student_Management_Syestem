@@ -50,6 +50,7 @@ namespace Student_Management_Syestem
                     command.Parameters.AddWithValue("@email", textBox3.Text);
                     command.Parameters.AddWithValue("@phone", textBox4.Text);
                     command.Parameters.AddWithValue("@address", textBox5.Text);
+
                     command.ExecuteNonQuery();
 
                 }
