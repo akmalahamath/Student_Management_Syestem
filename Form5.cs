@@ -26,5 +26,10 @@ namespace Student_Management_Syestem
         {
 
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
