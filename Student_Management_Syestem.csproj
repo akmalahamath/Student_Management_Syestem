@@ -154,6 +154,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="database_script.sql" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\NSBM-LOGO2.png" />
     <None Include="Resources\NSBM-LOGO1.png" />
