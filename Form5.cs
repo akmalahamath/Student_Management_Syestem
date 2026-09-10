@@ -46,5 +46,10 @@ namespace Student_Management_Syestem
         {
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
