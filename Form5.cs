@@ -112,5 +112,22 @@ namespace Student_Management_Syestem
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            dateTimePicker1.Value = DateTime.Now;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }
