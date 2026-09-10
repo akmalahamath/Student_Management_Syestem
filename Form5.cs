@@ -20,6 +20,11 @@ namespace Student_Management_Syestem
         public Form5()
         {
             InitializeComponent();
+            this.AutoSize = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximumSize = new Size(997, 800);
+            this.MinimumSize = new Size(997, 800);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -59,10 +64,18 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a value for Academic Year, Semester, and Status.");
+                return; 
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Entrollment (StudentID,StudentName, Course, AcademicYear, Semester, EnrollmentDate, Status) VALUES (@Studentid,@StudentName, @Course, @Academicyear, @Semester, @Entrollmentdate,@Status)";
+                string query = "INSERT INTO Enrollment (StudentID, StudentName, Course, AcademicYear, Semester, EnrollmentDate, Status) " +
+                               "VALUES (@StudentID, @StudentName, @Course, @AcademicYear, @Semester, @EnrollmentDate, @Status)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@StudentID", textBox1.Text);
@@ -71,14 +84,12 @@ namespace Student_Management_Syestem
                     command.Parameters.AddWithValue("@AcademicYear", comboBox1.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@Semester", comboBox2.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@EnrollmentDate", dateTimePicker1.Value.Date);
-                    command.Parameters.AddWithValue("@Status", comboBox2.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@Status", comboBox3.SelectedItem.ToString());
 
                     command.ExecuteNonQuery();
-
                 }
                 connection.Close();
                 MessageBox.Show("Student added successfully!");
-
             }
         }
 
@@ -93,6 +104,11 @@ namespace Student_Management_Syestem
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
