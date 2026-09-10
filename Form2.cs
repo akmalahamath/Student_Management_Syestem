@@ -36,5 +36,13 @@ namespace Student_Management_Syestem
             studentpage.Show();
             this.Hide();
         }
+
+        private void btnEnrollment_Click(object sender, EventArgs e)
+        {
+            Form5 entrollment = new Form5();
+            entrollment.Show();
+            this.Hide();
+
+        }
     }
 }
