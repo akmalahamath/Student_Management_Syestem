@@ -161,6 +161,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database2.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\launchericon-512x512.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\NSBM-LOGO2.png" />
     <None Include="Resources\NSBM-LOGO1.png" />
