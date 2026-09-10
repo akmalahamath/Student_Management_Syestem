@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Student_Management_Syestem
 {
     public partial class Loginform : Form
     {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
         public Loginform()
         {
             InitializeComponent();
@@ -39,26 +41,51 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             string email = textBox1.Text;
             string password = textBox2.Text;
-            try
+
+            if (email == "" || password == "")
             {
-                if (email == "admin" && password == "1234") 
+                MessageBox.Show("Please enter Email and Password");
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    MessageBox.Show("Login Successful");
-                    Dashboardform login= new Dashboardform();
-                    login.Show();
-                    this.Hide();
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM Signup " +
+                                   "WHERE email=@email AND password=@password";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@password", password);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Login Successful");
+
+                        Dashboardform login = new Dashboardform();
+                        login.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Email or Password");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new Exception("Please Enter Valid Credentials");
+                    MessageBox.Show("Database Error: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
