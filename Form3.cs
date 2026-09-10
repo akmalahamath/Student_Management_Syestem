@@ -59,6 +59,10 @@ namespace Student_Management_Syestem
                 connection.Close();
                 MessageBox.Show("Sign up successfully!");
 
+                Loginform login = new Loginform();
+                login.Show();
+                this.Hide();
+
             }
         }
     }
