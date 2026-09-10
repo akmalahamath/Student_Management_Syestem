@@ -52,6 +52,7 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnUserManagement = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,18 +64,19 @@
             // 
             this.lblWelcomeTitle.AutoSize = true;
             this.lblWelcomeTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeTitle.Location = new System.Drawing.Point(12, 85);
+            this.lblWelcomeTitle.Location = new System.Drawing.Point(11, 68);
             this.lblWelcomeTitle.Name = "lblWelcomeTitle";
-            this.lblWelcomeTitle.Size = new System.Drawing.Size(693, 32);
+            this.lblWelcomeTitle.Size = new System.Drawing.Size(582, 28);
             this.lblWelcomeTitle.TabIndex = 2;
             this.lblWelcomeTitle.Text = "WELCOME TO THE NSBM STUDENT MANAGEMENT SYSTEM";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(711, -52);
+            this.pictureBox1.Location = new System.Drawing.Point(632, -42);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(299, 235);
+            this.pictureBox1.Size = new System.Drawing.Size(266, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -84,9 +86,10 @@
             this.panel1.BackColor = System.Drawing.Color.LimeGreen;
             this.panel1.Controls.Add(this.lblStudentCount);
             this.panel1.Controls.Add(this.lblStudentTitle);
-            this.panel1.Location = new System.Drawing.Point(344, 207);
+            this.panel1.Location = new System.Drawing.Point(306, 166);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(243, 158);
+            this.panel1.Size = new System.Drawing.Size(216, 126);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -95,9 +98,9 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentCount.ForeColor = System.Drawing.Color.Navy;
-            this.lblStudentCount.Location = new System.Drawing.Point(68, 82);
+            this.lblStudentCount.Location = new System.Drawing.Point(60, 66);
             this.lblStudentCount.Name = "lblStudentCount";
-            this.lblStudentCount.Size = new System.Drawing.Size(92, 45);
+            this.lblStudentCount.Size = new System.Drawing.Size(78, 37);
             this.lblStudentCount.TabIndex = 16;
             this.lblStudentCount.Text = "1500";
             // 
@@ -105,9 +108,9 @@
             // 
             this.lblStudentTitle.AutoSize = true;
             this.lblStudentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentTitle.Location = new System.Drawing.Point(6, 39);
+            this.lblStudentTitle.Location = new System.Drawing.Point(5, 31);
             this.lblStudentTitle.Name = "lblStudentTitle";
-            this.lblStudentTitle.Size = new System.Drawing.Size(226, 32);
+            this.lblStudentTitle.Size = new System.Drawing.Size(190, 28);
             this.lblStudentTitle.TabIndex = 15;
             this.lblStudentTitle.Text = "TOTAL STUDENTS";
             // 
@@ -116,9 +119,10 @@
             this.panel2.BackColor = System.Drawing.Color.LimeGreen;
             this.panel2.Controls.Add(this.lblCourseCount);
             this.panel2.Controls.Add(this.lblCourseTitle);
-            this.panel2.Location = new System.Drawing.Point(672, 207);
+            this.panel2.Location = new System.Drawing.Point(597, 166);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(247, 158);
+            this.panel2.Size = new System.Drawing.Size(220, 126);
             this.panel2.TabIndex = 5;
             // 
             // lblCourseCount
@@ -126,9 +130,9 @@
             this.lblCourseCount.AutoSize = true;
             this.lblCourseCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourseCount.ForeColor = System.Drawing.Color.Navy;
-            this.lblCourseCount.Location = new System.Drawing.Point(79, 81);
+            this.lblCourseCount.Location = new System.Drawing.Point(70, 65);
             this.lblCourseCount.Name = "lblCourseCount";
-            this.lblCourseCount.Size = new System.Drawing.Size(92, 45);
+            this.lblCourseCount.Size = new System.Drawing.Size(78, 37);
             this.lblCourseCount.TabIndex = 17;
             this.lblCourseCount.Text = "1500";
             // 
@@ -136,9 +140,9 @@
             // 
             this.lblCourseTitle.AutoSize = true;
             this.lblCourseTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourseTitle.Location = new System.Drawing.Point(17, 42);
+            this.lblCourseTitle.Location = new System.Drawing.Point(15, 34);
             this.lblCourseTitle.Name = "lblCourseTitle";
-            this.lblCourseTitle.Size = new System.Drawing.Size(208, 32);
+            this.lblCourseTitle.Size = new System.Drawing.Size(175, 28);
             this.lblCourseTitle.TabIndex = 16;
             this.lblCourseTitle.Text = "TOTAL COURSES";
             // 
@@ -147,9 +151,10 @@
             this.panel3.BackColor = System.Drawing.Color.LimeGreen;
             this.panel3.Controls.Add(this.lblEntrollmentCount);
             this.panel3.Controls.Add(this.lblEntrollmentTitle);
-            this.panel3.Location = new System.Drawing.Point(344, 405);
+            this.panel3.Location = new System.Drawing.Point(306, 324);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(243, 158);
+            this.panel3.Size = new System.Drawing.Size(216, 126);
             this.panel3.TabIndex = 5;
             // 
             // lblEntrollmentCount
@@ -157,9 +162,9 @@
             this.lblEntrollmentCount.AutoSize = true;
             this.lblEntrollmentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrollmentCount.ForeColor = System.Drawing.Color.Navy;
-            this.lblEntrollmentCount.Location = new System.Drawing.Point(78, 77);
+            this.lblEntrollmentCount.Location = new System.Drawing.Point(69, 62);
             this.lblEntrollmentCount.Name = "lblEntrollmentCount";
-            this.lblEntrollmentCount.Size = new System.Drawing.Size(92, 45);
+            this.lblEntrollmentCount.Size = new System.Drawing.Size(78, 37);
             this.lblEntrollmentCount.TabIndex = 18;
             this.lblEntrollmentCount.Text = "1500";
             // 
@@ -167,9 +172,9 @@
             // 
             this.lblEntrollmentTitle.AutoSize = true;
             this.lblEntrollmentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrollmentTitle.Location = new System.Drawing.Point(18, 40);
+            this.lblEntrollmentTitle.Location = new System.Drawing.Point(16, 32);
             this.lblEntrollmentTitle.Name = "lblEntrollmentTitle";
-            this.lblEntrollmentTitle.Size = new System.Drawing.Size(206, 32);
+            this.lblEntrollmentTitle.Size = new System.Drawing.Size(174, 28);
             this.lblEntrollmentTitle.TabIndex = 17;
             this.lblEntrollmentTitle.Text = "ENTROLLMENTS";
             // 
@@ -178,9 +183,10 @@
             this.panel4.BackColor = System.Drawing.Color.LimeGreen;
             this.panel4.Controls.Add(this.lblPaymentCount);
             this.panel4.Controls.Add(this.lblPaymentTitle);
-            this.panel4.Location = new System.Drawing.Point(672, 406);
+            this.panel4.Location = new System.Drawing.Point(597, 325);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 157);
+            this.panel4.Size = new System.Drawing.Size(220, 126);
             this.panel4.TabIndex = 6;
             // 
             // lblPaymentCount
@@ -188,9 +194,9 @@
             this.lblPaymentCount.AutoSize = true;
             this.lblPaymentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaymentCount.ForeColor = System.Drawing.Color.Navy;
-            this.lblPaymentCount.Location = new System.Drawing.Point(81, 76);
+            this.lblPaymentCount.Location = new System.Drawing.Point(72, 61);
             this.lblPaymentCount.Name = "lblPaymentCount";
-            this.lblPaymentCount.Size = new System.Drawing.Size(92, 45);
+            this.lblPaymentCount.Size = new System.Drawing.Size(78, 37);
             this.lblPaymentCount.TabIndex = 19;
             this.lblPaymentCount.Text = "1500";
             // 
@@ -198,9 +204,9 @@
             // 
             this.lblPaymentTitle.AutoSize = true;
             this.lblPaymentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentTitle.Location = new System.Drawing.Point(54, 40);
+            this.lblPaymentTitle.Location = new System.Drawing.Point(48, 32);
             this.lblPaymentTitle.Name = "lblPaymentTitle";
-            this.lblPaymentTitle.Size = new System.Drawing.Size(149, 32);
+            this.lblPaymentTitle.Size = new System.Drawing.Size(124, 28);
             this.lblPaymentTitle.TabIndex = 18;
             this.lblPaymentTitle.Text = "PAYMENTS";
             // 
@@ -208,9 +214,9 @@
             // 
             this.lbldashboard.AutoSize = true;
             this.lbldashboard.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldashboard.Location = new System.Drawing.Point(12, 18);
+            this.lbldashboard.Location = new System.Drawing.Point(11, 14);
             this.lbldashboard.Name = "lbldashboard";
-            this.lbldashboard.Size = new System.Drawing.Size(256, 48);
+            this.lbldashboard.Size = new System.Drawing.Size(215, 41);
             this.lbldashboard.TabIndex = 7;
             this.lbldashboard.Text = "DASHBOARD";
             // 
@@ -223,9 +229,10 @@
             this.btnStudents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnStudents.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudents.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnStudents.Location = new System.Drawing.Point(19, 234);
+            this.btnStudents.Location = new System.Drawing.Point(18, 168);
+            this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(270, 75);
+            this.btnStudents.Size = new System.Drawing.Size(240, 60);
             this.btnStudents.TabIndex = 8;
             this.btnStudents.Text = "STUDENT";
             this.btnStudents.UseVisualStyleBackColor = false;
@@ -240,9 +247,10 @@
             this.btnCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCourses.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCourses.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnCourses.Location = new System.Drawing.Point(19, 332);
+            this.btnCourses.Location = new System.Drawing.Point(18, 241);
+            this.btnCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCourses.Name = "btnCourses";
-            this.btnCourses.Size = new System.Drawing.Size(270, 75);
+            this.btnCourses.Size = new System.Drawing.Size(240, 60);
             this.btnCourses.TabIndex = 9;
             this.btnCourses.Text = "COURSE";
             this.btnCourses.UseVisualStyleBackColor = false;
@@ -256,9 +264,10 @@
             this.btnEnrollment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnEnrollment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnrollment.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnEnrollment.Location = new System.Drawing.Point(19, 432);
+            this.btnEnrollment.Location = new System.Drawing.Point(18, 315);
+            this.btnEnrollment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnrollment.Name = "btnEnrollment";
-            this.btnEnrollment.Size = new System.Drawing.Size(270, 75);
+            this.btnEnrollment.Size = new System.Drawing.Size(240, 60);
             this.btnEnrollment.TabIndex = 10;
             this.btnEnrollment.Text = "ENTROLL";
             this.btnEnrollment.UseVisualStyleBackColor = false;
@@ -272,9 +281,10 @@
             this.btnPayments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnPayments.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayments.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnPayments.Location = new System.Drawing.Point(19, 534);
+            this.btnPayments.Location = new System.Drawing.Point(18, 386);
+            this.btnPayments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPayments.Name = "btnPayments";
-            this.btnPayments.Size = new System.Drawing.Size(270, 75);
+            this.btnPayments.Size = new System.Drawing.Size(240, 60);
             this.btnPayments.TabIndex = 11;
             this.btnPayments.Text = "PAYMENT";
             this.btnPayments.UseVisualStyleBackColor = false;
@@ -288,9 +298,10 @@
             this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnReports.Location = new System.Drawing.Point(19, 635);
+            this.btnReports.Location = new System.Drawing.Point(18, 464);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(270, 75);
+            this.btnReports.Size = new System.Drawing.Size(240, 60);
             this.btnReports.TabIndex = 12;
             this.btnReports.Text = "REPORT";
             this.btnReports.UseVisualStyleBackColor = false;
@@ -304,9 +315,10 @@
             this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnDashboard.Location = new System.Drawing.Point(19, 143);
+            this.btnDashboard.Location = new System.Drawing.Point(16, 98);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(270, 75);
+            this.btnDashboard.Size = new System.Drawing.Size(240, 60);
             this.btnDashboard.TabIndex = 13;
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -320,9 +332,10 @@
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Lime;
-            this.btnLogout.Location = new System.Drawing.Point(772, 635);
+            this.btnLogout.Location = new System.Drawing.Point(686, 508);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(172, 80);
+            this.btnLogout.Size = new System.Drawing.Size(153, 64);
             this.btnLogout.TabIndex = 14;
             this.btnLogout.Text = "LOGOUT";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -333,17 +346,28 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(507, 655);
+            this.label1.Location = new System.Drawing.Point(451, 524);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 32);
+            this.label1.Size = new System.Drawing.Size(204, 28);
             this.label1.TabIndex = 15;
             this.label1.Text = "Logged in as: Admin";
             // 
+            // btnUserManagement
+            // 
+            this.btnUserManagement.Location = new System.Drawing.Point(18, 540);
+            this.btnUserManagement.Name = "btnUserManagement";
+            this.btnUserManagement.Size = new System.Drawing.Size(240, 50);
+            this.btnUserManagement.TabIndex = 17;
+            this.btnUserManagement.Text = "User Management";
+            this.btnUserManagement.UseVisualStyleBackColor = true;
+            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
+            // 
             // Dashboardform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 744);
+            this.ClientSize = new System.Drawing.Size(870, 602);
+            this.Controls.Add(this.btnUserManagement);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.panel3);
@@ -361,9 +385,10 @@
             this.Controls.Add(this.lblWelcomeTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(997, 800);
-            this.MinimumSize = new System.Drawing.Size(997, 800);
+            this.MaximumSize = new System.Drawing.Size(888, 649);
+            this.MinimumSize = new System.Drawing.Size(888, 649);
             this.Name = "Dashboardform";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -407,5 +432,6 @@
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnUserManagement;
     }
 }

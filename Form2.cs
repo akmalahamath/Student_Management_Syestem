@@ -12,14 +12,24 @@ namespace Student_Management_Syestem
 {
     public partial class Dashboardform : Form
     {
-        public Dashboardform()
+        private string userRole;
+
+        public Dashboardform(string role)
         {
             InitializeComponent();
+
+            userRole = role;
+
+            // Only Admin can see User Management
+            btnUserManagement.Visible =
+                userRole.Equals("Admin", StringComparison.OrdinalIgnoreCase);
+
+            // Show the current user's role
+            label1.Text = "Logged in as: " + userRole;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -27,13 +37,19 @@ namespace Student_Management_Syestem
             Loginform login = new Loginform();
             login.Show();
             this.Hide();
-            
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            Student studentpage = new Student();
+            Student studentpage = new Student(userRole);
             studentpage.Show();
+            this.Hide();
+        }
+
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            UserManagement userManagement = new UserManagement(userRole);
+            userManagement.Show();
             this.Hide();
         }
     }

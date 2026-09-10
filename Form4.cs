@@ -15,15 +15,21 @@ namespace Student_Management_Syestem
     public partial class Student : Form
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
-        public Student()
+
+        private string userRole;
+
+        public Student(string role)
         {
             InitializeComponent();
+
+            userRole = role;
         }
 
         private void Student_Load(object sender, EventArgs e)
         {
             LoadStudents();
         }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -31,18 +37,19 @@ namespace Student_Management_Syestem
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            Dashboardform dashboard = new Dashboardform();
+            Dashboardform dashboard = new Dashboardform(userRole);
             dashboard.Show();
             this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
                 string query = "INSERT INTO Student (Studentid,FullName, Email, Phone, Address) VALUES (@Studentid,@Fullname, @email, @phone, @address)";
+
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Studentid", textBox1.Text);
@@ -52,16 +59,16 @@ namespace Student_Management_Syestem
                     command.Parameters.AddWithValue("@address", textBox5.Text);
 
                     command.ExecuteNonQuery();
-
                 }
+
                 connection.Close();
+
                 MessageBox.Show("Student added successfully!");
 
                 LoadStudents();
-
             }
         }
-      
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
