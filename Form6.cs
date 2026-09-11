@@ -16,5 +16,10 @@ namespace Student_Management_Syestem
         {
             InitializeComponent();
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
