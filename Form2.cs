@@ -37,6 +37,13 @@ namespace Student_Management_Syestem
             this.Hide();
         }
 
+        private void btnCourses_Click(object sender, EventArgs e)
+        {
+            Fprm7 course = new Fprm7();
+            course.Show();
+            this.Hide();
+
+
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
             Form5 entrollment = new Form5();
