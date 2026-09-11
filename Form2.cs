@@ -27,7 +27,16 @@ namespace Student_Management_Syestem
             Loginform login = new Loginform();
             login.Show();
             this.Hide();
-            
+
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ReportHubForm report = new ReportHubForm();
+            report.Show();
+            this.Hide();
+
+
         }
     }
 }
