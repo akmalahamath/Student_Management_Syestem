@@ -1,6 +1,6 @@
 ﻿namespace Student_Management_Syestem
 {
-    partial class Form6
+    partial class Fprm7
     {
         /// <summary>
         /// Required designer variable.
