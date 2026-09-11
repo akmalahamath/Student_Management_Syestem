@@ -44,5 +44,12 @@ namespace Student_Management_Syestem
             this.Hide();
 
         }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            Form6 payment = new Form6();
+            payment.Show();
+            this.Hide();
+        }
     }
 }
