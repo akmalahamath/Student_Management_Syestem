@@ -36,5 +36,14 @@ namespace Student_Management_Syestem
             studentpage.Show();
             this.Hide();
         }
+
+        private void btnCourses_Click(object sender, EventArgs e)
+        {
+            Fprm7 course = new Fprm7();
+            course.Show();
+            this.Hide();
+
+
+        }
     }
 }
