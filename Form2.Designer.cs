@@ -271,6 +271,7 @@
             this.btnEnrollment.TabIndex = 10;
             this.btnEnrollment.Text = "ENTROLL";
             this.btnEnrollment.UseVisualStyleBackColor = false;
+            this.btnEnrollment.Click += new System.EventHandler(this.btnEnrollment_Click);
             // 
             // btnPayments
             // 
@@ -288,6 +289,7 @@
             this.btnPayments.TabIndex = 11;
             this.btnPayments.Text = "PAYMENT";
             this.btnPayments.UseVisualStyleBackColor = false;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
             // 
             // btnReports
             // 

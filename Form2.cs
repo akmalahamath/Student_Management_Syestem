@@ -44,6 +44,19 @@ namespace Student_Management_Syestem
             this.Hide();
 
 
+        private void btnEnrollment_Click(object sender, EventArgs e)
+        {
+            Form5 entrollment = new Form5();
+            entrollment.Show();
+            this.Hide();
+
+        }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            Form6 payment = new Form6();
+            payment.Show();
+            this.Hide();
         }
     }
 }

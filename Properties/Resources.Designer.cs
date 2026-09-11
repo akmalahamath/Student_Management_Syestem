@@ -63,6 +63,16 @@ namespace Student_Management_Syestem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap launchericon_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("launchericon-512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_Student_Image {
             get {
                 object obj = ResourceManager.GetObject("Login_Student_Image", resourceCulture);
@@ -73,9 +83,39 @@ namespace Student_Management_Syestem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NSBM_LOGO {
             get {
                 object obj = ResourceManager.GetObject("NSBM-LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NSBM_LOGO1 {
+            get {
+                object obj = ResourceManager.GetObject("NSBM-LOGO1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NSBM_LOGO2 {
+            get {
+                object obj = ResourceManager.GetObject("NSBM-LOGO2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
