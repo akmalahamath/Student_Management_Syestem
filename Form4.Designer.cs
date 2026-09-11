@@ -175,7 +175,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Violet;
             this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(299, 501);
+            this.button4.Location = new System.Drawing.Point(307, 501);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(83, 62);
             this.button4.TabIndex = 27;
