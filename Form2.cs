@@ -27,7 +27,6 @@ namespace Student_Management_Syestem
             Loginform login = new Loginform();
             login.Show();
             this.Hide();
-            
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
@@ -42,14 +41,13 @@ namespace Student_Management_Syestem
             Fprm7 course = new Fprm7();
             course.Show();
             this.Hide();
-
+        } 
 
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
             Form5 entrollment = new Form5();
             entrollment.Show();
             this.Hide();
-
         }
 
         private void btnPayments_Click(object sender, EventArgs e)
