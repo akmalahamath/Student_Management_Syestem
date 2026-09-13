@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -170,17 +170,37 @@ namespace Student_Management_Syestem
             // Back button
             back.Click += (s, e) =>
             {
-                ReportHubForm report =
-                    new ReportHubForm();
+                ReturnToReportHub();
+            };
 
-                report.Show();
-
-                this.Close();
+            this.FormClosing += (s, e) =>
+            {
+                ReturnToReportHub();
             };
 
             this.Controls.Add(back);
         }
 
+        private bool _isReturning = false;
+        private void ReturnToReportHub()
+        {
+            if (_isReturning) return;
+            _isReturning = true;
+
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is ReportHubForm)
+                {
+                    openForm.Show();
+                    this.Dispose();
+                    return;
+                }
+            }
+
+            ReportHubForm report = new ReportHubForm();
+            report.Show();
+            this.Dispose();
+        }
 
         private void CourseReportForm_Load(
             object sender, EventArgs e)

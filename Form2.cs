@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,6 +65,13 @@ namespace Student_Management_Syestem
         {
             Form6 payment = new Form6();
             payment.Show();
+            this.Hide();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AttendanceForm attendance = new AttendanceForm();
+            attendance.Show();
             this.Hide();
         }
     }

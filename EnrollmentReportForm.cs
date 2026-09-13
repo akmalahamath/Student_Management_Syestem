@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -100,15 +100,67 @@ namespace Student_Management_Syestem
             back.FlatStyle = FlatStyle.Flat;
             back.FlatAppearance.BorderSize = 0;
 
+            try
+            {
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
+                using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT StudentID, StudentName, Course, EnrollmentDate FROM Enrollment";
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                    using (System.Data.SqlClient.SqlDataReader r = cmd.ExecuteReader())
+                    {
+                        if (r.HasRows)
+                        {
+                            dgvEnrollments.Rows.Clear();
+                            int id = 1;
+                            while (r.Read())
+                            {
+                                dgvEnrollments.Rows.Add("E" + id.ToString("D3"), r[0].ToString(), r[1].ToString(), r[2].ToString(), r[3].ToString());
+                                id++;
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Fallback to sample rows if DB is unavailable
+            }
+
             // Back to Report Hub
             back.Click += (s, e) =>
             {
-                ReportHubForm report = new ReportHubForm();
-                report.Show();
-                this.Close();
+                ReturnToReportHub();
+            };
+
+            this.FormClosing += (s, e) =>
+            {
+                ReturnToReportHub();
             };
 
             this.Controls.Add(back);
+        }
+
+        private bool _isReturning = false;
+        private void ReturnToReportHub()
+        {
+            if (_isReturning) return;
+            _isReturning = true;
+
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is ReportHubForm)
+                {
+                    openForm.Show();
+                    this.Dispose();
+                    return;
+                }
+            }
+
+            ReportHubForm report = new ReportHubForm();
+            report.Show();
+            this.Dispose();
         }
 
         private void EnrollmentReportForm_Load(object sender, EventArgs e)

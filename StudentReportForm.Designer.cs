@@ -35,23 +35,21 @@
             // dgvStudents
             // 
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(14, 95);
-            this.dgvStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvStudents.Location = new System.Drawing.Point(12, 76);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 24;
-            this.dgvStudents.Size = new System.Drawing.Size(873, 399);
+            this.dgvStudents.Size = new System.Drawing.Size(776, 319);
             this.dgvStudents.TabIndex = 0;
             // 
             // StudentReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
-            this.ClientSize = new System.Drawing.Size(925, 550);
+            this.ClientSize = new System.Drawing.Size(822, 466);
             this.Controls.Add(this.dgvStudents);
             this.Location = new System.Drawing.Point(280, 30);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "StudentReportForm";
             this.Text = "StudentReportForm";
             this.Load += new System.EventHandler(this.StudentReportForm_Load);

@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class Form6
     {
@@ -397,10 +397,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "Student";
+            this.Name = "Form6";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management - Fees & Payments";
-            this.Load += new System.EventHandler(this.Student_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form6_FormClosing);
+            this.Load += new System.EventHandler(this.Form6_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

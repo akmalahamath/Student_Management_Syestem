@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -15,7 +15,7 @@ namespace Student_Management_Syestem
             InitializeComponent();
         }
 
-        private void Student_Load(object sender, EventArgs e)
+        private void Form6_Load(object sender, EventArgs e)
         {
             InitLocalTable();
             UpdatePaymentModeUi();
@@ -217,9 +217,33 @@ namespace Student_Management_Syestem
         // CANCEL BUTTON
         private void button5_Click(object sender, EventArgs e)
         {
+            ReturnToDashboard();
+        }
+
+        private void Form6_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReturnToDashboard();
+        }
+
+        private bool _isReturning = false;
+        private void ReturnToDashboard()
+        {
+            if (_isReturning) return;
+            _isReturning = true;
+
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is Dashboardform)
+                {
+                    openForm.Show();
+                    this.Dispose();
+                    return;
+                }
+            }
+
             Dashboardform dashboard = new Dashboardform();
             dashboard.Show();
-            this.Close();
+            this.Dispose();
         }
 
         private void ResetForm()
