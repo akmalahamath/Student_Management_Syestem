@@ -368,7 +368,7 @@ namespace Student_Management_Syestem
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(975, 565);
+            this.ClientSize = new System.Drawing.Size(975, 744);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.button5);

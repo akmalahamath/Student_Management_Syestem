@@ -413,8 +413,7 @@ namespace Student_Management_Syestem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 482);
-            this.ClientSize = new System.Drawing.Size(870, 602);
+            this.ClientSize = new System.Drawing.Size(975, 744);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.panel3);

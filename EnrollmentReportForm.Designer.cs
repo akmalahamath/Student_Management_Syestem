@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class EnrollmentReportForm
     {
@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 422);
+            this.ClientSize = new System.Drawing.Size(975, 744);
             this.Name = "EnrollmentReportForm";
             this.Text = "EnrollmentReportForm";
             this.ResumeLayout(false);
