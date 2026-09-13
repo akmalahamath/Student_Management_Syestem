@@ -170,7 +170,7 @@ namespace Student_Management_Syestem
             // 
             this.button1.BackColor = System.Drawing.Color.GreenYellow;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(273, 620);
+            this.button1.Location = new System.Drawing.Point(79, 620);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 62);
@@ -183,7 +183,7 @@ namespace Student_Management_Syestem
             // 
             this.button2.BackColor = System.Drawing.Color.GreenYellow;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(439, 620);
+            this.button2.Location = new System.Drawing.Point(253, 620);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(124, 62);
@@ -197,7 +197,7 @@ namespace Student_Management_Syestem
             this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(600, 620);
+            this.button3.Location = new System.Drawing.Point(420, 620);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(124, 62);
@@ -230,8 +230,8 @@ namespace Student_Management_Syestem
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(996, 797);
-            this.MinimumSize = new System.Drawing.Size(996, 797);
+            this.MaximumSize = new System.Drawing.Size(997, 800);
+            this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "Fprm7";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Management";

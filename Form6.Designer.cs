@@ -28,8 +28,8 @@ namespace Student_Management_Syestem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStudentID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,33 +58,23 @@ namespace Student_Management_Syestem
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblHeader
-            // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblHeader.Location = new System.Drawing.Point(22, 12);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(436, 31);
-            this.lblHeader.TabIndex = 0;
-            this.lblHeader.Text = "STUDENT FEES && PAYMENT RECORDS";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 60);
+            this.label1.Location = new System.Drawing.Point(29, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 23);
+            this.label1.Size = new System.Drawing.Size(109, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Student ID";
             // 
             // txtStudentID
             // 
             this.txtStudentID.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtStudentID.Location = new System.Drawing.Point(125, 57);
+            this.txtStudentID.Location = new System.Drawing.Point(141, 71);
+            this.txtStudentID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(150, 30);
+            this.txtStudentID.Size = new System.Drawing.Size(168, 34);
             this.txtStudentID.TabIndex = 2;
             // 
             // button1
@@ -94,9 +84,10 @@ namespace Student_Management_Syestem
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(285, 56);
+            this.button1.Location = new System.Drawing.Point(321, 70);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 32);
+            this.button1.Size = new System.Drawing.Size(101, 40);
             this.button1.TabIndex = 3;
             this.button1.Text = "SEARCH";
             this.button1.UseVisualStyleBackColor = false;
@@ -106,27 +97,28 @@ namespace Student_Management_Syestem
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(405, 60);
+            this.label6.Location = new System.Drawing.Point(456, 75);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 23);
+            this.label6.Size = new System.Drawing.Size(143, 28);
             this.label6.TabIndex = 4;
             this.label6.Text = "Student Name";
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBox2.Location = new System.Drawing.Point(535, 57);
+            this.textBox2.Location = new System.Drawing.Point(602, 71);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(410, 30);
+            this.textBox2.Size = new System.Drawing.Size(368, 34);
             this.textBox2.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 102);
+            this.label3.Location = new System.Drawing.Point(29, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 23);
+            this.label3.Size = new System.Drawing.Size(150, 28);
             this.label3.TabIndex = 6;
             this.label3.Text = "Payment Mode";
             // 
@@ -135,9 +127,10 @@ namespace Student_Management_Syestem
             this.radioButton2.AutoSize = true;
             this.radioButton2.Checked = true;
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.radioButton2.Location = new System.Drawing.Point(155, 100);
+            this.radioButton2.Location = new System.Drawing.Point(174, 125);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(68, 27);
+            this.radioButton2.Size = new System.Drawing.Size(78, 32);
             this.radioButton2.TabIndex = 7;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Cash";
@@ -148,9 +141,10 @@ namespace Student_Management_Syestem
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.radioButton1.Location = new System.Drawing.Point(235, 100);
+            this.radioButton1.Location = new System.Drawing.Point(264, 125);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 27);
+            this.radioButton1.Size = new System.Drawing.Size(103, 32);
             this.radioButton1.TabIndex = 8;
             this.radioButton1.Text = "Cheque";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -160,9 +154,9 @@ namespace Student_Management_Syestem
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(350, 102);
+            this.label7.Location = new System.Drawing.Point(394, 128);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.Size = new System.Drawing.Size(118, 28);
             this.label7.TabIndex = 9;
             this.label7.Text = "Cheque NO";
             // 
@@ -170,18 +164,19 @@ namespace Student_Management_Syestem
             // 
             this.txtChequeNo.Enabled = false;
             this.txtChequeNo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtChequeNo.Location = new System.Drawing.Point(450, 99);
+            this.txtChequeNo.Location = new System.Drawing.Point(506, 124);
+            this.txtChequeNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtChequeNo.Name = "txtChequeNo";
-            this.txtChequeNo.Size = new System.Drawing.Size(145, 30);
+            this.txtChequeNo.Size = new System.Drawing.Size(163, 34);
             this.txtChequeNo.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(625, 102);
+            this.label2.Location = new System.Drawing.Point(703, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 23);
+            this.label2.Size = new System.Drawing.Size(57, 28);
             this.label2.TabIndex = 11;
             this.label2.Text = "Bank";
             // 
@@ -189,18 +184,20 @@ namespace Student_Management_Syestem
             // 
             this.txtBankName.Enabled = false;
             this.txtBankName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBankName.Location = new System.Drawing.Point(685, 99);
+            this.txtBankName.Location = new System.Drawing.Point(771, 124);
+            this.txtBankName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Size = new System.Drawing.Size(260, 30);
+            this.txtBankName.Size = new System.Drawing.Size(199, 34);
             this.txtBankName.TabIndex = 12;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.checkBox1.Location = new System.Drawing.Point(26, 145);
+            this.checkBox1.Location = new System.Drawing.Point(29, 181);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.Size = new System.Drawing.Size(22, 21);
             this.checkBox1.TabIndex = 13;
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -209,9 +206,9 @@ namespace Student_Management_Syestem
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(50, 142);
+            this.label12.Location = new System.Drawing.Point(56, 178);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 23);
+            this.label12.Size = new System.Drawing.Size(114, 28);
             this.label12.TabIndex = 14;
             this.label12.Text = "Installment";
             // 
@@ -219,9 +216,9 @@ namespace Student_Management_Syestem
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(160, 142);
+            this.label4.Location = new System.Drawing.Point(180, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 23);
+            this.label4.Size = new System.Drawing.Size(175, 28);
             this.label4.TabIndex = 15;
             this.label4.Text = "No Of Installment";
             // 
@@ -229,27 +226,29 @@ namespace Student_Management_Syestem
             // 
             this.txtInstallmentNo.Enabled = false;
             this.txtInstallmentNo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtInstallmentNo.Location = new System.Drawing.Point(310, 139);
+            this.txtInstallmentNo.Location = new System.Drawing.Point(349, 174);
+            this.txtInstallmentNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInstallmentNo.Name = "txtInstallmentNo";
-            this.txtInstallmentNo.Size = new System.Drawing.Size(105, 30);
+            this.txtInstallmentNo.Size = new System.Drawing.Size(118, 34);
             this.txtInstallmentNo.TabIndex = 16;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(445, 142);
+            this.label11.Location = new System.Drawing.Point(501, 178);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 23);
+            this.label11.Size = new System.Drawing.Size(132, 28);
             this.label11.TabIndex = 17;
             this.label11.Text = "Amount (Rs.)";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBox1.Location = new System.Drawing.Point(565, 139);
+            this.textBox1.Location = new System.Drawing.Point(636, 174);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 30);
+            this.textBox1.Size = new System.Drawing.Size(327, 34);
             this.textBox1.TabIndex = 18;
             // 
             // button4
@@ -259,9 +258,10 @@ namespace Student_Management_Syestem
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(28, 188);
+            this.button4.Location = new System.Drawing.Point(32, 235);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 38);
+            this.button4.Size = new System.Drawing.Size(174, 48);
             this.button4.TabIndex = 19;
             this.button4.Text = "ADD";
             this.button4.UseVisualStyleBackColor = false;
@@ -274,9 +274,10 @@ namespace Student_Management_Syestem
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(225, 188);
+            this.button3.Location = new System.Drawing.Point(228, 235);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 38);
+            this.button3.Size = new System.Drawing.Size(174, 48);
             this.button3.TabIndex = 20;
             this.button3.Text = "UPDATE";
             this.button3.UseVisualStyleBackColor = false;
@@ -289,9 +290,10 @@ namespace Student_Management_Syestem
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(423, 188);
+            this.button2.Location = new System.Drawing.Point(425, 235);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 38);
+            this.button2.Size = new System.Drawing.Size(174, 48);
             this.button2.TabIndex = 21;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = false;
@@ -304,9 +306,10 @@ namespace Student_Management_Syestem
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(620, 188);
+            this.button6.Location = new System.Drawing.Point(616, 235);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(155, 38);
+            this.button6.Size = new System.Drawing.Size(174, 48);
             this.button6.TabIndex = 22;
             this.button6.Text = "RESET";
             this.button6.UseVisualStyleBackColor = false;
@@ -319,9 +322,10 @@ namespace Student_Management_Syestem
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(790, 188);
+            this.button5.Location = new System.Drawing.Point(796, 235);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(155, 38);
+            this.button5.Size = new System.Drawing.Size(174, 48);
             this.button5.TabIndex = 23;
             this.button5.Text = "CANCEL";
             this.button5.UseVisualStyleBackColor = false;
@@ -333,25 +337,26 @@ namespace Student_Management_Syestem
             this.dgvStudents.AllowUserToDeleteRows = false;
             this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStudents.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudents.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudents.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudents.EnableHeadersVisualStyles = false;
-            this.dgvStudents.Location = new System.Drawing.Point(26, 240);
+            this.dgvStudents.Location = new System.Drawing.Point(29, 310);
+            this.dgvStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvStudents.MultiSelect = false;
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
@@ -359,13 +364,24 @@ namespace Student_Management_Syestem
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 26;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(919, 300);
+            this.dgvStudents.Size = new System.Drawing.Size(920, 365);
             this.dgvStudents.TabIndex = 24;
             this.dgvStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellClick);
             // 
-            // Student
+            // lblHeader
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblHeader.Location = new System.Drawing.Point(25, 15);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(516, 38);
+            this.lblHeader.TabIndex = 0;
+            this.lblHeader.Text = "STUDENT FEES && PAYMENT RECORDS";
+            // 
+            // Form6
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(975, 744);
@@ -396,7 +412,10 @@ namespace Student_Management_Syestem
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(997, 800);
+            this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "Form6";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management - Fees & Payments";
