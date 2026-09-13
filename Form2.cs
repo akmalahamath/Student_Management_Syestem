@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +15,12 @@ namespace Student_Management_Syestem
         public Dashboardform()
         {
             InitializeComponent();
+            this.FormClosing += Dashboardform_FormClosing;
+        }
+
+        private void Dashboardform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +18,16 @@ namespace Student_Management_Syestem
         public Signup()
         {
             InitializeComponent();
+            this.FormClosing += Signup_FormClosing;
+        }
+
+        private void Signup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Loginform login = new Loginform();
+                login.Show();
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -39,30 +49,47 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text))
             {
-                connection.Open();
+                MessageBox.Show("Please fill in all required fields (First Name, Email, Password, and ID Number).");
+                return;
+            }
 
-                string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty)";
+            if (!int.TryParse(textBox5.Text.Trim(), out int idNumber))
+            {
+                MessageBox.Show("ID Number must be a valid integer.");
+                return;
+            }
 
-                SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
 
-                command.Parameters.AddWithValue("@firstname", textBox1.Text);
-                command.Parameters.AddWithValue("@lastname", textBox2.Text);
-                command.Parameters.AddWithValue("@email", textBox3.Text);
-                command.Parameters.AddWithValue("@password", textBox4.Text);
-                command.Parameters.AddWithValue("@idnumber", textBox5.Text);
-                command.Parameters.AddWithValue("@faculty", textBox6.Text);
+                    string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty)";
 
-                command.ExecuteNonQuery();
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                connection.Close();
-                MessageBox.Show("Sign up successfully!");
+                    command.Parameters.AddWithValue("@firstname", textBox1.Text.Trim());
+                    command.Parameters.AddWithValue("@lastname", textBox2.Text.Trim());
+                    command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
+                    command.Parameters.AddWithValue("@password", textBox4.Text.Trim());
+                    command.Parameters.AddWithValue("@idnumber", idNumber);
+                    command.Parameters.AddWithValue("@faculty", textBox6.Text.Trim());
 
-                Loginform login = new Loginform();
-                login.Show();
-                this.Hide();
+                    command.ExecuteNonQuery();
 
+                    MessageBox.Show("Sign up successfully!");
+
+                    Loginform login = new Loginform();
+                    login.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
             }
         }
     }

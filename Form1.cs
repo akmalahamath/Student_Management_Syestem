@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +17,12 @@ namespace Student_Management_Syestem
         public Loginform()
         {
             InitializeComponent();
+            this.FormClosing += Loginform_FormClosing;
+        }
+
+        private void Loginform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)
