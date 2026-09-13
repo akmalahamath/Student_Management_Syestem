@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class StudentReportForm
     {
@@ -47,7 +47,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
-            this.ClientSize = new System.Drawing.Size(822, 466);
+            this.ClientSize = new System.Drawing.Size(975, 744);
             this.Controls.Add(this.dgvStudents);
             this.Location = new System.Drawing.Point(280, 30);
             this.Name = "StudentReportForm";

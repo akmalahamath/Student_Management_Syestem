@@ -36,7 +36,7 @@ namespace Student_Management_Syestem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = false;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(700, 480);
+            this.ClientSize = new System.Drawing.Size(975, 744);
             this.Font = new System.Drawing.Font("Arial", 7.8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

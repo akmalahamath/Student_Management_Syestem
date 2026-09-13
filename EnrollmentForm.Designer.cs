@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class EnrollmentForm
     {
@@ -200,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
-            this.ClientSize = new System.Drawing.Size(899, 741);
+            this.ClientSize = new System.Drawing.Size(975, 744);
             this.Controls.Add(this.dgvEnrollments);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
