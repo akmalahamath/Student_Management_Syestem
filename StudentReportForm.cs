@@ -62,7 +62,7 @@ namespace Student_Management_Syestem
             // DataGridView
             dgvStudents = new DataGridView();
             dgvStudents.Location = new Point(30, 110);
-            dgvStudents.Size = new Size(915, 540);
+            dgvStudents.Size = new Size(915, 450);
             dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStudents.AllowUserToAddRows = false;
             dgvStudents.ReadOnly = true;
@@ -83,7 +83,7 @@ namespace Student_Management_Syestem
             Button back = new Button();
             back.Text = "Back to Report Hub";
             back.Size = new Size(180, 42);
-            back.Location = new Point(30, 665);
+            back.Location = new Point(30, 575);
             back.BackColor = Color.SteelBlue;
             back.ForeColor = Color.White;
             back.Font = new Font("Segoe UI", 10, FontStyle.Bold);

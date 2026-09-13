@@ -176,10 +176,10 @@ namespace Student_Management_Syestem
             // 
             this.button1.BackColor = System.Drawing.Color.GreenYellow;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(50, 620);
+            this.button1.Location = new System.Drawing.Point(50, 580);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 55);
+            this.button1.Size = new System.Drawing.Size(100, 48);
             this.button1.TabIndex = 13;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = false;
@@ -189,10 +189,10 @@ namespace Student_Management_Syestem
             // 
             this.button4.BackColor = System.Drawing.Color.GreenYellow;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(160, 620);
+            this.button4.Location = new System.Drawing.Point(160, 580);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 55);
+            this.button4.Size = new System.Drawing.Size(100, 48);
             this.button4.TabIndex = 14;
             this.button4.Text = "UPDATE";
             this.button4.UseVisualStyleBackColor = false;
@@ -202,10 +202,10 @@ namespace Student_Management_Syestem
             // 
             this.button5.BackColor = System.Drawing.Color.GreenYellow;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(270, 620);
+            this.button5.Location = new System.Drawing.Point(270, 580);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 55);
+            this.button5.Size = new System.Drawing.Size(100, 48);
             this.button5.TabIndex = 15;
             this.button5.Text = "DELETE";
             this.button5.UseVisualStyleBackColor = false;
@@ -215,10 +215,10 @@ namespace Student_Management_Syestem
             // 
             this.button2.BackColor = System.Drawing.Color.GreenYellow;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(380, 620);
+            this.button2.Location = new System.Drawing.Point(380, 580);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 55);
+            this.button2.Size = new System.Drawing.Size(100, 48);
             this.button2.TabIndex = 16;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = false;
@@ -229,10 +229,10 @@ namespace Student_Management_Syestem
             this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(490, 620);
+            this.button3.Location = new System.Drawing.Point(490, 580);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 55);
+            this.button3.Size = new System.Drawing.Size(90, 48);
             this.button3.TabIndex = 17;
             this.button3.Text = "BACK";
             this.button3.UseVisualStyleBackColor = false;

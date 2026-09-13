@@ -41,6 +41,7 @@ namespace Student_Management_Syestem
             btnAttendance.Visible = isAdmin;
             btnReports.Visible = true;
             btnDashboard.Visible = true;
+            btnReports.Location = isAdmin ? new System.Drawing.Point(15, 408) : new System.Drawing.Point(15, 158);
 
             label1.Text = "Logged in as: " + UserSession.Role + (isAdmin ? "" : " (" + UserSession.UserName + ")");
 
