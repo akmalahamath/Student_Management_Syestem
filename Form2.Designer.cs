@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class Dashboardform
     {
@@ -48,6 +48,7 @@
             this.btnCourses = new System.Windows.Forms.Button();
             this.btnEnrollment = new System.Windows.Forms.Button();
             this.btnPayments = new System.Windows.Forms.Button();
+            this.btnAttendance = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -258,14 +259,10 @@
             this.btnStudents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnStudents.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudents.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnStudents.Location = new System.Drawing.Point(26, 166);
+            this.btnStudents.Location = new System.Drawing.Point(17, 166);
             this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(232, 46);
-            this.btnStudents.Location = new System.Drawing.Point(17, 187);
-            this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(240, 60);
+            this.btnStudents.Size = new System.Drawing.Size(240, 50);
             this.btnStudents.TabIndex = 8;
             this.btnStudents.Text = "STUDENT";
             this.btnStudents.UseVisualStyleBackColor = false;
@@ -280,14 +277,10 @@
             this.btnCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnCourses.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCourses.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnCourses.Location = new System.Drawing.Point(26, 222);
+            this.btnCourses.Location = new System.Drawing.Point(17, 224);
             this.btnCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCourses.Name = "btnCourses";
-            this.btnCourses.Size = new System.Drawing.Size(232, 46);
-            this.btnCourses.Location = new System.Drawing.Point(17, 266);
-            this.btnCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCourses.Name = "btnCourses";
-            this.btnCourses.Size = new System.Drawing.Size(240, 60);
+            this.btnCourses.Size = new System.Drawing.Size(240, 50);
             this.btnCourses.TabIndex = 9;
             this.btnCourses.Text = "COURSE";
             this.btnCourses.UseVisualStyleBackColor = false;
@@ -302,14 +295,10 @@
             this.btnEnrollment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnEnrollment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnrollment.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnEnrollment.Location = new System.Drawing.Point(26, 284);
+            this.btnEnrollment.Location = new System.Drawing.Point(17, 282);
             this.btnEnrollment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnrollment.Name = "btnEnrollment";
-            this.btnEnrollment.Size = new System.Drawing.Size(232, 46);
-            this.btnEnrollment.Location = new System.Drawing.Point(17, 346);
-            this.btnEnrollment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEnrollment.Name = "btnEnrollment";
-            this.btnEnrollment.Size = new System.Drawing.Size(240, 60);
+            this.btnEnrollment.Size = new System.Drawing.Size(240, 50);
             this.btnEnrollment.TabIndex = 10;
             this.btnEnrollment.Text = "ENTROLL";
             this.btnEnrollment.UseVisualStyleBackColor = false;
@@ -324,18 +313,32 @@
             this.btnPayments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnPayments.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayments.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnPayments.Location = new System.Drawing.Point(26, 344);
+            this.btnPayments.Location = new System.Drawing.Point(17, 340);
             this.btnPayments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPayments.Name = "btnPayments";
-            this.btnPayments.Size = new System.Drawing.Size(232, 46);
-            this.btnPayments.Location = new System.Drawing.Point(17, 427);
-            this.btnPayments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPayments.Name = "btnPayments";
-            this.btnPayments.Size = new System.Drawing.Size(240, 60);
+            this.btnPayments.Size = new System.Drawing.Size(240, 50);
             this.btnPayments.TabIndex = 11;
             this.btnPayments.Text = "PAYMENT";
             this.btnPayments.UseVisualStyleBackColor = false;
             this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
+            // 
+            // btnAttendance
+            // 
+            this.btnAttendance.BackColor = System.Drawing.Color.Navy;
+            this.btnAttendance.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAttendance.FlatAppearance.BorderSize = 2;
+            this.btnAttendance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnAttendance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnAttendance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnAttendance.Location = new System.Drawing.Point(17, 398);
+            this.btnAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.Size = new System.Drawing.Size(240, 50);
+            this.btnAttendance.TabIndex = 12;
+            this.btnAttendance.Text = "ATTENDANCE";
+            this.btnAttendance.UseVisualStyleBackColor = false;
+            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
             // btnReports
             // 
@@ -346,15 +349,11 @@
             this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnReports.Location = new System.Drawing.Point(26, 405);
+            this.btnReports.Location = new System.Drawing.Point(17, 456);
             this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(232, 46);
-            this.btnReports.Location = new System.Drawing.Point(17, 508);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(240, 60);
-            this.btnReports.TabIndex = 12;
+            this.btnReports.Size = new System.Drawing.Size(240, 50);
+            this.btnReports.TabIndex = 13;
             this.btnReports.Text = "REPORT";
             this.btnReports.UseVisualStyleBackColor = false;
             this.btnReports.Click += new System.EventHandler(this.btnReport_Click);
@@ -368,15 +367,11 @@
             this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnDashboard.Location = new System.Drawing.Point(26, 110);
+            this.btnDashboard.Location = new System.Drawing.Point(17, 108);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(232, 46);
-            this.btnDashboard.Location = new System.Drawing.Point(17, 114);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(240, 60);
-            this.btnDashboard.TabIndex = 13;
+            this.btnDashboard.Size = new System.Drawing.Size(240, 50);
+            this.btnDashboard.TabIndex = 7;
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.UseVisualStyleBackColor = false;
             // 
@@ -425,6 +420,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnReports);
+            this.Controls.Add(this.btnAttendance);
             this.Controls.Add(this.btnPayments);
             this.Controls.Add(this.btnEnrollment);
             this.Controls.Add(this.btnCourses);
@@ -482,6 +478,7 @@
         private System.Windows.Forms.Button btnCourses;
         private System.Windows.Forms.Button btnEnrollment;
         private System.Windows.Forms.Button btnPayments;
+        private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnLogout;

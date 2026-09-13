@@ -129,11 +129,29 @@
     <Compile Include="StudentReportForm.Designer.cs">
       <DependentUpon>StudentReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceForm.Designer.cs">
+      <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceReportForm.Designer.cs">
+      <DependentUpon>AttendanceReportForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CourseReportForm.resx">
       <DependentUpon>CourseReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnrollmentReportForm.resx">
       <DependentUpon>EnrollmentReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceForm.resx">
+      <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceReportForm.resx">
+      <DependentUpon>AttendanceReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

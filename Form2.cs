@@ -69,5 +69,12 @@ namespace Student_Management_Syestem
             payment.Show();
             this.Hide();
         }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AttendanceForm attendance = new AttendanceForm();
+            attendance.Show();
+            this.Hide();
+        }
     }
 }

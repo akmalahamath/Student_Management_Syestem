@@ -20,10 +20,6 @@ namespace Student_Management_Syestem
         public Form5()
         {
             InitializeComponent();
-            this.AutoSize = false;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximumSize = new Size(997, 800);
-            this.MinimumSize = new Size(997, 800);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += Form5_FormClosing;
         }
@@ -76,19 +72,13 @@ namespace Student_Management_Syestem
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text))
             {
-                MessageBox.Show("Please enter Student ID, Student Name, and Course.");
-                return;
-            }
-
-            if (!int.TryParse(textBox1.Text.Trim(), out int studentId))
-            {
-                MessageBox.Show("Student ID must be a valid number.");
+                MessageBox.Show("Please enter Student ID, Student Name, and Course.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null)
             {
-                MessageBox.Show("Please select a value for Academic Year, Semester, and Status.");
+                MessageBox.Show("Please select a value for Academic Year, Semester, and Status.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; 
             }
 
@@ -101,7 +91,7 @@ namespace Student_Management_Syestem
                                    "VALUES (@StudentID, @StudentName, @Course, @AcademicYear, @Semester, @EnrollmentDate, @Status)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@StudentID", studentId);
+                        command.Parameters.AddWithValue("@StudentID", textBox1.Text.Trim());
                         command.Parameters.AddWithValue("@StudentName", textBox2.Text.Trim());
                         command.Parameters.AddWithValue("@Course", textBox3.Text.Trim());
                         command.Parameters.AddWithValue("@AcademicYear", comboBox1.SelectedItem.ToString());
@@ -112,12 +102,11 @@ namespace Student_Management_Syestem
                         command.ExecuteNonQuery();
                     }
                 }
-                MessageBox.Show("Enrollment added successfully!");
-                button3_Click(sender, e);
+                MessageBox.Show("Student enrolled successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Error: " + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -154,21 +143,15 @@ namespace Student_Management_Syestem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text))
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Please enter Student ID, Student Name, and Course.");
-                return;
-            }
-
-            if (!int.TryParse(textBox1.Text.Trim(), out int studentId))
-            {
-                MessageBox.Show("Student ID must be a valid number.");
+                MessageBox.Show("Please enter Student ID to update.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null)
             {
-                MessageBox.Show("Please select a value for Academic Year, Semester, and Status.");
+                MessageBox.Show("Please select a value for Academic Year, Semester, and Status.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -180,7 +163,7 @@ namespace Student_Management_Syestem
                     string query = "UPDATE Enrollment SET StudentName=@StudentName, Course=@Course, AcademicYear=@AcademicYear, Semester=@Semester, EnrollmentDate=@EnrollmentDate, Status=@Status WHERE StudentID=@StudentID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@StudentID", studentId);
+                        command.Parameters.AddWithValue("@StudentID", textBox1.Text.Trim());
                         command.Parameters.AddWithValue("@StudentName", textBox2.Text.Trim());
                         command.Parameters.AddWithValue("@Course", textBox3.Text.Trim());
                         command.Parameters.AddWithValue("@AcademicYear", comboBox1.SelectedItem.ToString());
@@ -188,22 +171,53 @@ namespace Student_Management_Syestem
                         command.Parameters.AddWithValue("@EnrollmentDate", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
                         command.Parameters.AddWithValue("@Status", comboBox3.SelectedItem.ToString());
 
-                        int rows = command.ExecuteNonQuery();
-                        if (rows > 0)
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Enrollment updated successfully!");
+                            MessageBox.Show("Enrollment record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("No enrollment record found with Student ID: " + studentId);
+                            MessageBox.Show("No enrollment record found with Student ID: " + textBox1.Text, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Error: " + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReturnToDashboard();
+        }
+
+        private void Form5_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReturnToDashboard();
+        }
+
+        private bool _isReturning = false;
+        private void ReturnToDashboard()
+        {
+            if (_isReturning) return;
+            _isReturning = true;
+
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is Dashboardform)
+                {
+                    openForm.Show();
+                    this.Dispose();
+                    return;
+                }
+            }
+
+            Dashboardform dashboard = new Dashboardform();
+            dashboard.Show();
+            this.Dispose();
         }
     }
 }

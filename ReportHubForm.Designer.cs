@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class ReportHubForm
     {
@@ -34,13 +34,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(684, 453);
+            this.AutoSize = false;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(700, 480);
             this.Font = new System.Drawing.Font("Arial", 7.8F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ReportHubForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reports";
+            this.Text = "Reports Hub";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportHubForm_FormClosing);
             this.ResumeLayout(false);
 
         }

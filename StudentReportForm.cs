@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -147,20 +147,66 @@ namespace Student_Management_Syestem
             back.FlatAppearance.BorderSize = 0;
 
 
+            try
+            {
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
+                using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT Studentid, Fullname, email, phone FROM Student";
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                    using (System.Data.SqlClient.SqlDataReader r = cmd.ExecuteReader())
+                    {
+                        if (r.HasRows)
+                        {
+                            dgvStudents.Rows.Clear();
+                            while (r.Read())
+                            {
+                                dgvStudents.Rows.Add(r[0].ToString(), r[1].ToString(), "N/A", r[2].ToString(), r[3].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Fallback to sample rows if DB is unavailable
+            }
+
             // Back button click
             back.Click += (s, e) =>
             {
-                ReportHubForm report =
-                    new ReportHubForm();
+                ReturnToReportHub();
+            };
 
-                report.Show();
-
-                this.Close();
+            this.FormClosing += (s, e) =>
+            {
+                ReturnToReportHub();
             };
 
             this.Controls.Add(back);
         }
 
+        private bool _isReturning = false;
+        private void ReturnToReportHub()
+        {
+            if (_isReturning) return;
+            _isReturning = true;
+
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is ReportHubForm)
+                {
+                    openForm.Show();
+                    this.Dispose();
+                    return;
+                }
+            }
+
+            ReportHubForm report = new ReportHubForm();
+            report.Show();
+            this.Dispose();
+        }
 
         private void StudentReportForm_Load(
             object sender, EventArgs e)
