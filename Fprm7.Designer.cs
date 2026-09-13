@@ -55,10 +55,10 @@ namespace Student_Management_Syestem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(70, 54);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(70, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(567, 52);
+            this.label1.Size = new System.Drawing.Size(567, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "COURSE MANAGEMENT";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -271,7 +271,7 @@ namespace Student_Management_Syestem
             this.dgvCourses.RowHeadersWidth = 51;
             this.dgvCourses.RowTemplate.Height = 24;
             this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourses.Size = new System.Drawing.Size(355, 450);
+            this.dgvCourses.Size = new System.Drawing.Size(365, 550);
             this.dgvCourses.TabIndex = 20;
             this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellClick);
             // 

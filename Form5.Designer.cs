@@ -234,7 +234,7 @@ namespace Student_Management_Syestem
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(40, 490);
+            this.button1.Location = new System.Drawing.Point(40, 605);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 44);
             this.button1.TabIndex = 15;
@@ -246,7 +246,7 @@ namespace Student_Management_Syestem
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(195, 490);
+            this.button2.Location = new System.Drawing.Point(195, 605);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 44);
             this.button2.TabIndex = 16;
@@ -258,7 +258,7 @@ namespace Student_Management_Syestem
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(350, 490);
+            this.button5.Location = new System.Drawing.Point(350, 605);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 44);
             this.button5.TabIndex = 17;
@@ -270,7 +270,7 @@ namespace Student_Management_Syestem
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(115, 545);
+            this.button3.Location = new System.Drawing.Point(115, 655);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 44);
             this.button3.TabIndex = 18;
@@ -283,7 +283,7 @@ namespace Student_Management_Syestem
             this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(275, 545);
+            this.button4.Location = new System.Drawing.Point(275, 655);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(140, 44);
             this.button4.TabIndex = 19;
@@ -336,7 +336,7 @@ namespace Student_Management_Syestem
             this.dgvEnrollment.RowHeadersWidth = 51;
             this.dgvEnrollment.RowTemplate.Height = 24;
             this.dgvEnrollment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEnrollment.Size = new System.Drawing.Size(380, 460);
+            this.dgvEnrollment.Size = new System.Drawing.Size(420, 580);
             this.dgvEnrollment.TabIndex = 22;
             this.dgvEnrollment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEnrollment_CellClick);
             // 

@@ -364,7 +364,7 @@ namespace Student_Management_Syestem
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 26;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(920, 365);
+            this.dgvStudents.Size = new System.Drawing.Size(930, 400);
             this.dgvStudents.TabIndex = 24;
             this.dgvStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellClick);
             // 

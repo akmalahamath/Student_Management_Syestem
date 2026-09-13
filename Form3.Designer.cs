@@ -96,7 +96,7 @@ namespace Student_Management_Syestem
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe Print", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label10.Location = new System.Drawing.Point(22, 138);
+            this.label10.Location = new System.Drawing.Point(19, 222);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(249, 30);
             this.label10.TabIndex = 13;
@@ -109,7 +109,7 @@ namespace Student_Management_Syestem
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe Print", 6F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label11.Location = new System.Drawing.Point(24, 168);
+            this.label11.Location = new System.Drawing.Point(21, 252);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(235, 17);
             this.label11.TabIndex = 12;
@@ -132,10 +132,10 @@ namespace Student_Management_Syestem
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(258, 115);
+            this.pictureBox1.Size = new System.Drawing.Size(271, 227);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;

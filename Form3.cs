@@ -62,11 +62,6 @@ namespace Student_Management_Syestem
                     connection.Open();
 
                     string role = "Student";
-                    if (textBox3.Text.Trim().ToLower().Contains("admin") || textBox6.Text.Trim().ToLower().Contains("admin"))
-                    {
-                        role = "Admin";
-                    }
-
                     string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty, Role) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty, @role)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
