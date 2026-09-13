@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class Fprm7
     {
@@ -43,6 +43,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -176,6 +177,7 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -188,6 +190,21 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(600, 620);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 62);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "BACK";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Fprm7
             // 
@@ -195,6 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(974, 741);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox5);
@@ -215,7 +233,9 @@
             this.MaximumSize = new System.Drawing.Size(996, 797);
             this.MinimumSize = new System.Drawing.Size(996, 797);
             this.Name = "Fprm7";
-            this.Text = "Form6";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Course Management";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Fprm7_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +258,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
