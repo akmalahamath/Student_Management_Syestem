@@ -13,6 +13,16 @@ namespace Student_Management_Syestem
         public Form6()
         {
             InitializeComponent();
+            this.FormClosing += Form6_FormClosing;
+        }
+
+        private void Form6_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Dashboardform dashboard = new Dashboardform();
+                dashboard.Show();
+            }
         }
 
         private void Form6_Load(object sender, EventArgs e)
@@ -220,7 +230,7 @@ namespace Student_Management_Syestem
             ReturnToDashboard();
         }
 
-        private void Form6_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form6_FormClosingCustom(object sender, FormClosingEventArgs e)
         {
             ReturnToDashboard();
         }

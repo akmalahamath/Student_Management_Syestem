@@ -56,10 +56,10 @@ namespace Student_Management_Syestem
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(22, 18);
+            this.label1.Location = new System.Drawing.Point(26, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 50);
+            this.label1.Size = new System.Drawing.Size(317, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "ENROLLMENT";
             // 
@@ -67,10 +67,10 @@ namespace Student_Management_Syestem
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 104);
+            this.label2.Location = new System.Drawing.Point(58, 125);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 28);
+            this.label2.Size = new System.Drawing.Size(130, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Student ID";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -79,59 +79,59 @@ namespace Student_Management_Syestem
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(48, 158);
+            this.label3.Location = new System.Drawing.Point(58, 190);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 28);
+            this.label3.Size = new System.Drawing.Size(171, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Student Name";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(212, 104);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Location = new System.Drawing.Point(254, 125);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 26);
+            this.textBox1.Size = new System.Drawing.Size(302, 30);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(212, 158);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Location = new System.Drawing.Point(254, 190);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(252, 26);
+            this.textBox2.Size = new System.Drawing.Size(302, 30);
             this.textBox2.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(48, 208);
+            this.label4.Location = new System.Drawing.Point(58, 250);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 28);
+            this.label4.Size = new System.Drawing.Size(89, 32);
             this.label4.TabIndex = 5;
             this.label4.Text = "Course";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(212, 213);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Location = new System.Drawing.Point(254, 256);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(252, 26);
+            this.textBox3.Size = new System.Drawing.Size(302, 30);
             this.textBox3.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(48, 264);
+            this.label5.Location = new System.Drawing.Point(58, 317);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 28);
+            this.label5.Size = new System.Drawing.Size(173, 32);
             this.label5.TabIndex = 7;
             this.label5.Text = "Academic year";
             // 
@@ -143,10 +143,10 @@ namespace Student_Management_Syestem
             "2nd Year",
             "3rd Year",
             "4th Year"});
-            this.comboBox1.Location = new System.Drawing.Point(212, 267);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Location = new System.Drawing.Point(254, 320);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(252, 28);
+            this.comboBox1.Size = new System.Drawing.Size(302, 33);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -154,10 +154,10 @@ namespace Student_Management_Syestem
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(48, 322);
+            this.label6.Location = new System.Drawing.Point(58, 386);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 28);
+            this.label6.Size = new System.Drawing.Size(115, 32);
             this.label6.TabIndex = 9;
             this.label6.Text = "Semester";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -172,10 +172,10 @@ namespace Student_Management_Syestem
             "Semester 4",
             "Semester 5",
             "Semester 6"});
-            this.comboBox2.Location = new System.Drawing.Point(212, 328);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Location = new System.Drawing.Point(254, 394);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(252, 28);
+            this.comboBox2.Size = new System.Drawing.Size(302, 33);
             this.comboBox2.TabIndex = 10;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -183,30 +183,30 @@ namespace Student_Management_Syestem
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(48, 378);
+            this.label7.Location = new System.Drawing.Point(58, 454);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 28);
+            this.label7.Size = new System.Drawing.Size(191, 32);
             this.label7.TabIndex = 11;
             this.label7.Text = "Enrollment Date";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 382);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(254, 458);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(252, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(302, 30);
             this.dateTimePicker1.TabIndex = 12;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(55, 439);
+            this.label8.Location = new System.Drawing.Point(66, 527);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 28);
+            this.label8.Size = new System.Drawing.Size(81, 32);
             this.label8.TabIndex = 13;
             this.label8.Text = "Status";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -218,10 +218,10 @@ namespace Student_Management_Syestem
             "Active",
             "Complete",
             "Cancel"});
-            this.comboBox3.Location = new System.Drawing.Point(206, 445);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox3.Location = new System.Drawing.Point(247, 534);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(258, 28);
+            this.comboBox3.Size = new System.Drawing.Size(309, 33);
             this.comboBox3.TabIndex = 14;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -229,10 +229,10 @@ namespace Student_Management_Syestem
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(528, 145);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(634, 174);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 42);
+            this.button1.Size = new System.Drawing.Size(200, 50);
             this.button1.TabIndex = 15;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = false;
@@ -242,10 +242,10 @@ namespace Student_Management_Syestem
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(528, 249);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(634, 299);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 42);
+            this.button2.Size = new System.Drawing.Size(200, 50);
             this.button2.TabIndex = 16;
             this.button2.Text = "UPDATE";
             this.button2.UseVisualStyleBackColor = false;
@@ -255,10 +255,10 @@ namespace Student_Management_Syestem
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(528, 370);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(634, 413);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 42);
+            this.button3.Size = new System.Drawing.Size(200, 50);
             this.button3.TabIndex = 17;
             this.button3.Text = "CLEAR";
             this.button3.UseVisualStyleBackColor = false;
@@ -281,20 +281,20 @@ namespace Student_Management_Syestem
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Student_Management_Syestem.Properties.Resources.NSBM_LOGO1;
-            this.pictureBox1.Location = new System.Drawing.Point(680, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(816, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(146, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
             // Form5
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(816, 628);
+            this.ClientSize = new System.Drawing.Size(974, 743);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -316,10 +316,10 @@ namespace Student_Management_Syestem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(834, 675);
-            this.MinimumSize = new System.Drawing.Size(834, 675);
+            this.MaximumSize = new System.Drawing.Size(996, 799);
+            this.MinimumSize = new System.Drawing.Size(996, 799);
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";

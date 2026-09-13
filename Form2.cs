@@ -15,6 +15,12 @@ namespace Student_Management_Syestem
         public Dashboardform()
         {
             InitializeComponent();
+            this.FormClosing += Dashboardform_FormClosing;
+        }
+
+        private void Dashboardform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -27,7 +33,6 @@ namespace Student_Management_Syestem
             Loginform login = new Loginform();
             login.Show();
             this.Hide();
-
         }
 
         private void btnReport_Click(object sender, EventArgs e)
@@ -35,8 +40,6 @@ namespace Student_Management_Syestem
             ReportHubForm report = new ReportHubForm();
             report.Show();
             this.Hide();
-
-
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
@@ -58,7 +61,6 @@ namespace Student_Management_Syestem
             Form5 entrollment = new Form5();
             entrollment.Show();
             this.Hide();
-
         }
 
         private void btnPayments_Click(object sender, EventArgs e)

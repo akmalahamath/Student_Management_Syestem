@@ -21,6 +21,16 @@ namespace Student_Management_Syestem
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormClosing += Form5_FormClosing;
+        }
+
+        private void Form5_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Dashboardform dashboard = new Dashboardform();
+                dashboard.Show();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -184,7 +194,7 @@ namespace Student_Management_Syestem
             ReturnToDashboard();
         }
 
-        private void Form5_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form5_FormClosingCustom(object sender, FormClosingEventArgs e)
         {
             ReturnToDashboard();
         }
