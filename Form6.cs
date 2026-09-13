@@ -230,7 +230,7 @@ namespace Student_Management_Syestem
             ReturnToDashboard();
         }
 
-        private void Form6_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form6_FormClosingCustom(object sender, FormClosingEventArgs e)
         {
             ReturnToDashboard();
         }

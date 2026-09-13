@@ -194,7 +194,7 @@ namespace Student_Management_Syestem
             ReturnToDashboard();
         }
 
-        private void Form5_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form5_FormClosingCustom(object sender, FormClosingEventArgs e)
         {
             ReturnToDashboard();
         }
