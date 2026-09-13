@@ -15,10 +15,10 @@ namespace Student_Management_Syestem
 {
     public partial class Student : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
         public Student()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += Student_FormClosing;
             this.textBox6.TextChanged += textBox6_TextChanged;
             this.dataGridView1.CellClick += dataGridView1_CellClick;
@@ -82,19 +82,40 @@ namespace Student_Management_Syestem
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Please enter Student ID and Full Name.");
+                MessageBox.Show("Please enter Student ID and Full Name.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentId;
+            if (!int.TryParse(textBox1.Text.Trim(), out studentId))
+            {
+                MessageBox.Show("Student ID must be a numeric value.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = DbHelper.GetConnection())
                 {
                     connection.Open();
-                    string query = "INSERT INTO Student (Studentid,FullName, Email, Phone, Address) VALUES (@Studentid,@Fullname, @email, @phone, @address)";
+
+                    // Check if Student ID already exists
+                    string checkSql = "SELECT COUNT(*) FROM Student WHERE Studentid = @Studentid";
+                    using (SqlCommand checkCmd = new SqlCommand(checkSql, connection))
+                    {
+                        checkCmd.Parameters.AddWithValue("@Studentid", studentId);
+                        int exists = Convert.ToInt32(checkCmd.ExecuteScalar());
+                        if (exists > 0)
+                        {
+                            MessageBox.Show("A student with ID " + studentId + " already exists. Use UPDATE instead.", "Duplicate Student ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    string query = "INSERT INTO Student (Studentid, Fullname, email, phone, address) VALUES (@Studentid, @Fullname, @email, @phone, @address)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Studentid", textBox1.Text.Trim());
+                        command.Parameters.AddWithValue("@Studentid", studentId);
                         command.Parameters.AddWithValue("@Fullname", textBox2.Text.Trim());
                         command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
                         command.Parameters.AddWithValue("@phone", textBox4.Text.Trim());
@@ -102,14 +123,114 @@ namespace Student_Management_Syestem
 
                         command.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Student added successfully!");
+                    MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     button4_Click(sender, e);
                     LoadStudents();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Error: " + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Please select or enter a Student ID to update.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentId;
+            if (!int.TryParse(textBox1.Text.Trim(), out studentId))
+            {
+                MessageBox.Show("Student ID must be a numeric value.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection connection = DbHelper.GetConnection())
+                {
+                    connection.Open();
+                    string query = "UPDATE Student SET Fullname=@Fullname, email=@email, phone=@phone, address=@address WHERE Studentid=@Studentid";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Studentid", studentId);
+                        command.Parameters.AddWithValue("@Fullname", textBox2.Text.Trim());
+                        command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
+                        command.Parameters.AddWithValue("@phone", textBox4.Text.Trim());
+                        command.Parameters.AddWithValue("@address", textBox5.Text.Trim());
+
+                        int rows = command.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Student record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadStudents();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No student found with ID: " + studentId, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Please select or enter a Student ID to delete.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentId;
+            if (!int.TryParse(textBox1.Text.Trim(), out studentId))
+            {
+                MessageBox.Show("Student ID must be a numeric value.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show(
+                "Are you sure you want to delete student with ID: " + studentId + " (" + textBox2.Text.Trim() + ")?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                using (SqlConnection connection = DbHelper.GetConnection())
+                {
+                    connection.Open();
+                    string query = "DELETE FROM Student WHERE Studentid = @Studentid";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Studentid", studentId);
+                        int rows = command.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Student record deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            button4_Click(sender, e);
+                            LoadStudents();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No student found with ID: " + studentId, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
       
@@ -158,15 +279,13 @@ namespace Student_Management_Syestem
         {
             try
             {
-                using (SqlConnection connection =
-                    new SqlConnection(connectionString))
+                using (SqlConnection connection = DbHelper.GetConnection())
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM Student";
+                    string query = "SELECT Studentid, Fullname, email, phone, address FROM Student";
 
-                    SqlDataAdapter adapter =
-                        new SqlDataAdapter(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
 
                     DataTable dt = new DataTable();
 
@@ -177,7 +296,7 @@ namespace Student_Management_Syestem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error loading students: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

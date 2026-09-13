@@ -6,27 +6,27 @@ using System.Windows.Forms;
 
 namespace Student_Management_Syestem
 {
-    public partial class EnrollmentReportForm : Form
+    public partial class PaymentReportForm : Form
     {
-        private DataGridView dgvEnrollments;
+        private DataGridView dgvPayments;
         private TextBox txtSearch;
         private Label lblTotalStats;
-        private DataTable _enrollmentDt;
+        private DataTable _paymentDt;
 
-        public EnrollmentReportForm()
+        public PaymentReportForm()
         {
             InitializeComponent();
             SetupUi();
-            LoadEnrollmentData();
+            LoadPaymentData();
         }
 
         private void SetupUi()
         {
-            this.Text = "Enrollment Report";
+            this.Text = "Payment Report";
 
             // Title
             Label title = new Label();
-            title.Text = "ENROLLMENT DIRECTORY REPORT";
+            title.Text = "PAYMENT & FEE REPORT";
             title.Font = new Font("Segoe UI", 20, FontStyle.Bold);
             title.ForeColor = Color.DarkBlue;
             title.AutoSize = false;
@@ -60,24 +60,24 @@ namespace Student_Management_Syestem
             this.Controls.Add(lblTotalStats);
 
             // DataGridView
-            dgvEnrollments = new DataGridView();
-            dgvEnrollments.Location = new Point(30, 110);
-            dgvEnrollments.Size = new Size(915, 540);
-            dgvEnrollments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvEnrollments.AllowUserToAddRows = false;
-            dgvEnrollments.ReadOnly = true;
-            dgvEnrollments.RowHeadersVisible = false;
-            dgvEnrollments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEnrollments.EnableHeadersVisualStyles = false;
-            dgvEnrollments.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
-            dgvEnrollments.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvEnrollments.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvEnrollments.ColumnHeadersHeight = 35;
-            dgvEnrollments.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F);
-            dgvEnrollments.RowTemplate.Height = 28;
-            dgvEnrollments.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
-            dgvEnrollments.DefaultCellStyle.SelectionForeColor = Color.Black;
-            this.Controls.Add(dgvEnrollments);
+            dgvPayments = new DataGridView();
+            dgvPayments.Location = new Point(30, 110);
+            dgvPayments.Size = new Size(915, 540);
+            dgvPayments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPayments.AllowUserToAddRows = false;
+            dgvPayments.ReadOnly = true;
+            dgvPayments.RowHeadersVisible = false;
+            dgvPayments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPayments.EnableHeadersVisualStyles = false;
+            dgvPayments.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dgvPayments.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPayments.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvPayments.ColumnHeadersHeight = 35;
+            dgvPayments.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F);
+            dgvPayments.RowTemplate.Height = 28;
+            dgvPayments.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
+            dgvPayments.DefaultCellStyle.SelectionForeColor = Color.Black;
+            this.Controls.Add(dgvPayments);
 
             // Back button
             Button back = new Button();
@@ -96,61 +96,70 @@ namespace Student_Management_Syestem
             this.FormClosing += (s, e) => ReturnToReportHub();
         }
 
-        private void LoadEnrollmentData()
+        private void LoadPaymentData()
         {
             try
             {
                 using (SqlConnection conn = DbHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = @"SELECT 
-                                        StudentID AS [Student ID], 
-                                        StudentName AS [Student Name], 
-                                        Course AS [Course], 
-                                        AcademicYear AS [Academic Year], 
-                                        Semester AS [Semester], 
-                                        EnrollmentDate AS [Date], 
-                                        Status AS [Status] 
-                                     FROM Enrollment 
-                                     ORDER BY StudentID";
-                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                    string query = "SELECT PaymentID AS [ID], StudentID AS [Student ID], StudentName AS [Student Name], " +
+                                   "PaymentMode AS [Mode], ChequeNo AS [Cheque No], BankName AS [Bank], " +
+                                   "Amount AS [Amount (Rs.)], PaymentDate AS [Date], Status AS [Status] FROM Payment ORDER BY PaymentID DESC";
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                     {
-                        _enrollmentDt = new DataTable();
-                        da.Fill(_enrollmentDt);
-                        dgvEnrollments.DataSource = _enrollmentDt;
+                        _paymentDt = new DataTable();
+                        adapter.Fill(_paymentDt);
+                        dgvPayments.DataSource = _paymentDt;
+
+                        if (dgvPayments.Columns["Amount (Rs.)"] != null)
+                        {
+                            dgvPayments.Columns["Amount (Rs.)"].DefaultCellStyle.Format = "N2";
+                        }
+
                         UpdateSummary();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading enrollments: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading payments: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void UpdateSummary()
         {
-            if (_enrollmentDt != null)
+            if (_paymentDt == null) return;
+
+            int count = _paymentDt.DefaultView.Count;
+            decimal totalAmount = 0;
+
+            foreach (DataRowView drv in _paymentDt.DefaultView)
             {
-                int count = _enrollmentDt.DefaultView.Count;
-                lblTotalStats.Text = $"Showing {count} Enrollment(s)";
+                if (decimal.TryParse(drv["Amount (Rs.)"]?.ToString(), out decimal val))
+                {
+                    totalAmount += val;
+                }
             }
+
+            lblTotalStats.Text = string.Format("Total Records: {0}   |   Total Collected: Rs. {1:N2}", count, totalAmount);
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (_enrollmentDt == null) return;
+            if (_paymentDt == null) return;
 
-            string search = txtSearch.Text.Trim().Replace("'", "''");
-            if (string.IsNullOrEmpty(search))
+            string filter = txtSearch.Text.Trim().Replace("'", "''");
+            if (string.IsNullOrEmpty(filter))
             {
-                _enrollmentDt.DefaultView.RowFilter = "";
+                _paymentDt.DefaultView.RowFilter = "";
             }
             else
             {
-                _enrollmentDt.DefaultView.RowFilter = string.Format(
-                    "Convert([Student ID], 'System.String') LIKE '%{0}%' OR [Student Name] LIKE '%{0}%' OR [Course] LIKE '%{0}%' OR [Academic Year] LIKE '%{0}%' OR [Semester] LIKE '%{0}%' OR [Status] LIKE '%{0}%'",
-                    search);
+                _paymentDt.DefaultView.RowFilter = string.Format(
+                    "[Student ID] LIKE '%{0}%' OR [Student Name] LIKE '%{0}%' OR [Mode] LIKE '%{0}%' OR [Bank] LIKE '%{0}%' OR [Status] LIKE '%{0}%'",
+                    filter);
             }
             UpdateSummary();
         }

@@ -28,38 +28,25 @@ namespace Student_Management_Syestem
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStudents = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvStudents
-            // 
-            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(12, 76);
-            this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.RowHeadersWidth = 51;
-            this.dgvStudents.RowTemplate.Height = 24;
-            this.dgvStudents.Size = new System.Drawing.Size(776, 319);
-            this.dgvStudents.TabIndex = 0;
             // 
             // StudentReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGreen;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(975, 744);
-            this.Controls.Add(this.dgvStudents);
-            this.Location = new System.Drawing.Point(280, 30);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(997, 800);
+            this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "StudentReportForm";
-            this.Text = "StudentReportForm";
-            this.Load += new System.EventHandler(this.StudentReportForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Student Report";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvStudents;
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Student_Management_Syestem
@@ -10,7 +9,6 @@ namespace Student_Management_Syestem
     {
         private int _selectedAttendanceId = -1;
         private DataTable _attendanceTable;
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
 
         public AttendanceForm()
         {
@@ -19,40 +17,65 @@ namespace Student_Management_Syestem
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
-            InitTable();
+            LoadCoursesIntoCombo();
+            LoadAttendanceFromDb();
+
             cmbStatus.SelectedIndex = 0; // Present
             cmbSession.SelectedIndex = 0; // Morning
-            if (cmbCourse.Items.Count > 0) cmbCourse.SelectedIndex = 0;
             dtpDate.Value = DateTime.Today;
 
             txtStudentID.Leave += TxtStudentID_Leave;
-            UpdateStats();
         }
 
-        private void InitTable()
+        private void LoadCoursesIntoCombo()
         {
-            _attendanceTable = new DataTable();
-            _attendanceTable.Columns.Add("AttendanceID", typeof(int));
-            _attendanceTable.Columns.Add("StudentID", typeof(string));
-            _attendanceTable.Columns.Add("StudentName", typeof(string));
-            _attendanceTable.Columns.Add("Course", typeof(string));
-            _attendanceTable.Columns.Add("Date", typeof(string));
-            _attendanceTable.Columns.Add("Session", typeof(string));
-            _attendanceTable.Columns.Add("Status", typeof(string));
-            _attendanceTable.Columns.Add("Remarks", typeof(string));
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT CourseName FROM Course", conn))
+                    using (SqlDataReader r = cmd.ExecuteReader())
+                    {
+                        if (r.HasRows)
+                        {
+                            cmbCourse.Items.Clear();
+                            while (r.Read())
+                            {
+                                cmbCourse.Items.Add(r["CourseName"].ToString());
+                            }
+                            if (cmbCourse.Items.Count > 0) cmbCourse.SelectedIndex = 0;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
 
-            // Populate initial realistic records
-            string today = DateTime.Today.ToString("yyyy-MM-dd");
-            string yesterday = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
-
-            _attendanceTable.Rows.Add(1, "1001", "Kamal Perera", "Software Engineering", today, "Morning", "Present", "On time");
-            _attendanceTable.Rows.Add(2, "1002", "Nimal Silva", "Computer Science", today, "Morning", "Absent", "Medical leave");
-            _attendanceTable.Rows.Add(3, "1003", "Saman Kumara", "Information Technology", today, "Morning", "Late", "Traffic delay");
-            _attendanceTable.Rows.Add(4, "1004", "Anura Fernando", "Software Engineering", yesterday, "Morning", "Present", "Regular");
-            _attendanceTable.Rows.Add(5, "1005", "Dilani Jayasinghe", "Business Management", yesterday, "Afternoon", "Present", "Regular");
-
-            dgvAttendance.DataSource = _attendanceTable;
-            SetColumnHeaders();
+        private void LoadAttendanceFromDb()
+        {
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT AttendanceID, StudentID, StudentName, Course, Date, Session, Status, Remarks FROM Attendance ORDER BY AttendanceID DESC";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                    {
+                        _attendanceTable = new DataTable();
+                        adapter.Fill(_attendanceTable);
+                        dgvAttendance.DataSource = _attendanceTable;
+                        SetColumnHeaders();
+                        UpdateStats();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading attendance: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void SetColumnHeaders()
@@ -70,17 +93,20 @@ namespace Student_Management_Syestem
         private void TxtStudentID_Leave(object sender, EventArgs e)
         {
             string id = txtStudentID.Text.Trim();
-            if (string.IsNullOrEmpty(id) || !string.IsNullOrEmpty(txtStudentName.Text)) return;
+            if (string.IsNullOrEmpty(id)) return;
+
+            int studentId;
+            if (!int.TryParse(id, out studentId)) return;
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = DbHelper.GetConnection())
                 {
                     conn.Open();
                     string query = "SELECT Fullname FROM Student WHERE Studentid = @id";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@id", studentId);
                         object result = cmd.ExecuteScalar();
                         if (result != null && result != DBNull.Value)
                         {
@@ -91,10 +117,10 @@ namespace Student_Management_Syestem
             }
             catch
             {
-                // Ignore database connection issues for lookup
             }
         }
 
+        // MARK (ADD) ATTENDANCE
         private void btnMark_Click(object sender, EventArgs e)
         {
             string studentId = txtStudentID.Text.Trim();
@@ -126,14 +152,38 @@ namespace Student_Management_Syestem
                 return;
             }
 
-            int newId = _attendanceTable.Rows.Count + 1;
-            _attendanceTable.Rows.Add(newId, studentId, studentName, course, date, session, status, remarks);
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string insertSql = "INSERT INTO Attendance (StudentID, StudentName, Course, Date, Session, Status, Remarks) " +
+                                       "VALUES (@sid, @sname, @crs, @dt, @sess, @stat, @rem)";
+                    using (SqlCommand cmd = new SqlCommand(insertSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sid", studentId);
+                        cmd.Parameters.AddWithValue("@sname", studentName);
+                        cmd.Parameters.AddWithValue("@crs", course);
+                        cmd.Parameters.AddWithValue("@dt", date);
+                        cmd.Parameters.AddWithValue("@sess", session);
+                        cmd.Parameters.AddWithValue("@stat", status);
+                        cmd.Parameters.AddWithValue("@rem", remarks);
 
-            MessageBox.Show("Attendance marked successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ResetForm();
-            UpdateStats();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Attendance marked successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetForm();
+                LoadAttendanceFromDb();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        // UPDATE ATTENDANCE
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (_selectedAttendanceId <= 0)
@@ -156,29 +206,45 @@ namespace Student_Management_Syestem
                 return;
             }
 
-            DataRow[] rows = _attendanceTable.Select("AttendanceID = " + _selectedAttendanceId);
-            if (rows.Length > 0)
+            try
             {
-                DataRow row = rows[0];
-                row["StudentID"] = studentId;
-                row["StudentName"] = studentName;
-                row["Course"] = course;
-                row["Date"] = date;
-                row["Session"] = session;
-                row["Status"] = status;
-                row["Remarks"] = remarks;
-                _attendanceTable.AcceptChanges();
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string updateSql = "UPDATE Attendance SET StudentID=@sid, StudentName=@sname, Course=@crs, Date=@dt, Session=@sess, Status=@stat, Remarks=@rem " +
+                                       "WHERE AttendanceID=@id";
+                    using (SqlCommand cmd = new SqlCommand(updateSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", _selectedAttendanceId);
+                        cmd.Parameters.AddWithValue("@sid", studentId);
+                        cmd.Parameters.AddWithValue("@sname", studentName);
+                        cmd.Parameters.AddWithValue("@crs", course);
+                        cmd.Parameters.AddWithValue("@dt", date);
+                        cmd.Parameters.AddWithValue("@sess", session);
+                        cmd.Parameters.AddWithValue("@stat", status);
+                        cmd.Parameters.AddWithValue("@rem", remarks);
 
-                MessageBox.Show("Attendance record updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetForm();
-                UpdateStats();
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Attendance record updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetForm();
+                            LoadAttendanceFromDb();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Record not found to update.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Record not found.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // DELETE ATTENDANCE
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (_selectedAttendanceId <= 0)
@@ -190,33 +256,55 @@ namespace Student_Management_Syestem
             if (MessageBox.Show("Are you sure you want to delete this attendance record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-            DataRow[] rows = _attendanceTable.Select("AttendanceID = " + _selectedAttendanceId);
-            if (rows.Length > 0)
+            try
             {
-                rows[0].Delete();
-                _attendanceTable.AcceptChanges();
-                MessageBox.Show("Attendance record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetForm();
-                UpdateStats();
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string deleteSql = "DELETE FROM Attendance WHERE AttendanceID = @id";
+                    using (SqlCommand cmd = new SqlCommand(deleteSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", _selectedAttendanceId);
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Attendance record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetForm();
+                            LoadAttendanceFromDb();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Record not found to delete.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // CLEAR
         private void btnClear_Click(object sender, EventArgs e)
         {
             ResetForm();
-            dgvAttendance.DataSource = _attendanceTable;
+            LoadAttendanceFromDb();
         }
 
+        // SEARCH
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string query = txtStudentID.Text.Trim();
             if (string.IsNullOrEmpty(query)) query = txtStudentName.Text.Trim();
 
+            if (_attendanceTable == null) return;
+
             DataView dv = new DataView(_attendanceTable);
 
             if (!string.IsNullOrEmpty(query))
             {
-                dv.RowFilter = string.Format("StudentID LIKE '%{0}%' OR StudentName LIKE '%{0}%'", query.Replace("'", "''"));
+                dv.RowFilter = string.Format("StudentID LIKE '%{0}%' OR StudentName LIKE '%{0}%' OR Course LIKE '%{0}%'", query.Replace("'", "''"));
             }
             else if (cmbStatus.SelectedItem != null)
             {
@@ -225,12 +313,13 @@ namespace Student_Management_Syestem
 
             dgvAttendance.DataSource = dv;
 
-            if (dgvAttendance.Rows.Count == 0)
+            if (dv.Count == 0)
             {
                 MessageBox.Show("No records found matching the search criteria.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
+        // BACK
         private void btnBack_Click(object sender, EventArgs e)
         {
             ReturnToDashboard();
@@ -290,6 +379,7 @@ namespace Student_Management_Syestem
                 string course = row.Cells["Course"]?.Value?.ToString() ?? "";
                 int courseIdx = cmbCourse.FindStringExact(course);
                 if (courseIdx >= 0) cmbCourse.SelectedIndex = courseIdx;
+                else cmbCourse.Text = course;
 
                 if (DateTime.TryParse(row.Cells["Date"]?.Value?.ToString(), out DateTime dt))
                     dtpDate.Value = dt;
@@ -308,6 +398,8 @@ namespace Student_Management_Syestem
 
         private void UpdateStats()
         {
+            if (_attendanceTable == null) return;
+
             int total = _attendanceTable.Rows.Count;
             string today = DateTime.Today.ToString("yyyy-MM-dd");
             int presentToday = 0;

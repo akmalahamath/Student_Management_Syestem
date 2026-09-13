@@ -36,12 +36,14 @@ namespace Student_Management_Syestem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(975, 744);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(997, 800);
             this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "CourseReportForm";
-            this.Text = "CourseReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Course Report";
             this.ResumeLayout(false);
 
         }

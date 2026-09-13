@@ -16,6 +16,74 @@ namespace Student_Management_Syestem
         {
             InitializeComponent();
             this.FormClosing += Dashboardform_FormClosing;
+            this.Load += Dashboardform_Load;
+            this.Activated += Dashboardform_Activated;
+        }
+
+        private void Dashboardform_Load(object sender, EventArgs e)
+        {
+            RefreshDashboard();
+        }
+
+        private void Dashboardform_Activated(object sender, EventArgs e)
+        {
+            RefreshDashboard();
+        }
+
+        public void RefreshDashboard()
+        {
+            // 1. Enforce Role Permissions
+            bool isAdmin = UserSession.IsAdmin;
+            btnStudents.Visible = isAdmin;
+            btnCourses.Visible = isAdmin;
+            btnEnrollment.Visible = isAdmin;
+            btnPayments.Visible = isAdmin;
+            btnAttendance.Visible = isAdmin;
+            btnReports.Visible = true;
+            btnDashboard.Visible = true;
+
+            label1.Text = "Logged in as: " + UserSession.Role + (isAdmin ? "" : " (" + UserSession.UserName + ")");
+
+            // 2. Load live metrics from Database
+            try
+            {
+                using (System.Data.SqlClient.SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    // Total Students
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Student", conn))
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblStudentCount.Text = res != null ? res.ToString() : "0";
+                    }
+
+                    // Total Courses
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Course", conn))
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblCourseCount.Text = res != null ? res.ToString() : "0";
+                    }
+
+                    // Total Enrollments
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Enrollment", conn))
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblEntrollmentCount.Text = res != null ? res.ToString() : "0";
+                    }
+
+                    // Total Payments
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Payment", conn))
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblPaymentCount.Text = res != null ? res.ToString() : "0";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error refreshing dashboard counts: " + ex.Message);
+            }
         }
 
         private void Dashboardform_FormClosing(object sender, FormClosingEventArgs e)

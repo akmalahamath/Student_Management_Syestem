@@ -1,7 +1,7 @@
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Student_Management_Syestem
 {
@@ -14,42 +14,76 @@ namespace Student_Management_Syestem
         {
             InitializeComponent();
             this.FormClosing += Form6_FormClosing;
+            this.txtStudentID.Leave += TxtStudentID_Leave;
         }
 
         private void Form6_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                Dashboardform dashboard = new Dashboardform();
-                dashboard.Show();
+                ReturnToDashboard();
             }
         }
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            InitLocalTable();
+            LoadPaymentsFromDb();
             UpdatePaymentModeUi();
             UpdateInstallmentUi();
         }
 
-        // Local in-memory table (no database)
-        private void InitLocalTable()
+        private void TxtStudentID_Leave(object sender, EventArgs e)
         {
-            _paymentTable = new DataTable();
-            _paymentTable.Columns.Add("PaymentID", typeof(int));
-            _paymentTable.Columns.Add("StudentID", typeof(string));
-            _paymentTable.Columns.Add("StudentName", typeof(string));
-            _paymentTable.Columns.Add("PaymentMode", typeof(string));
-            _paymentTable.Columns.Add("ChequeNo", typeof(string));
-            _paymentTable.Columns.Add("BankName", typeof(string));
-            _paymentTable.Columns.Add("IsInstallment", typeof(bool));
-            _paymentTable.Columns.Add("InstallmentNo", typeof(string));
-            _paymentTable.Columns.Add("Amount", typeof(decimal));
-            _paymentTable.Columns.Add("PaymentDate", typeof(string));
-            _paymentTable.Columns.Add("Status", typeof(string));
+            string idStr = txtStudentID.Text.Trim();
+            if (string.IsNullOrEmpty(idStr)) return;
 
-            dgvStudents.DataSource = _paymentTable;
-            SetColumnHeaders();
+            int studentId;
+            if (!int.TryParse(idStr, out studentId)) return;
+
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT Fullname FROM Student WHERE Studentid = @id";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", studentId);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            textBox2.Text = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        // Load payments from Database
+        private void LoadPaymentsFromDb()
+        {
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT PaymentID, StudentID, StudentName, PaymentMode, ChequeNo, BankName, IsInstallment, InstallmentNo, Amount, PaymentDate, Status FROM Payment ORDER BY PaymentID DESC";
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                    {
+                        _paymentTable = new DataTable();
+                        adapter.Fill(_paymentTable);
+                        dgvStudents.DataSource = _paymentTable;
+                        SetColumnHeaders();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading payments: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void SetColumnHeaders()
@@ -120,16 +154,38 @@ namespace Student_Management_Syestem
             if (string.IsNullOrEmpty(amountStr) || !decimal.TryParse(amountStr, out decimal amount) || amount <= 0)
             { MessageBox.Show("Please enter a valid positive amount.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); textBox1.Focus(); return; }
 
-            // Add to local table
-            int newId = _paymentTable.Rows.Count + 1;
-            _paymentTable.Rows.Add(
-                newId, studentId, studentName, paymentMode,
-                chequeNo, bankName, isInstallment, installmentNo,
-                amount, DateTime.Now.ToString("yyyy-MM-dd"), "Paid"
-            );
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string insertSql = "INSERT INTO Payment (StudentID, StudentName, PaymentMode, ChequeNo, BankName, IsInstallment, InstallmentNo, Amount, PaymentDate, Status) " +
+                                       "VALUES (@sid, @sname, @mode, @chq, @bank, @isInst, @instNo, @amt, @pdate, @status)";
+                    using (SqlCommand cmd = new SqlCommand(insertSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sid", studentId);
+                        cmd.Parameters.AddWithValue("@sname", studentName);
+                        cmd.Parameters.AddWithValue("@mode", paymentMode);
+                        cmd.Parameters.AddWithValue("@chq", chequeNo);
+                        cmd.Parameters.AddWithValue("@bank", bankName);
+                        cmd.Parameters.AddWithValue("@isInst", isInstallment);
+                        cmd.Parameters.AddWithValue("@instNo", installmentNo);
+                        cmd.Parameters.AddWithValue("@amt", amount);
+                        cmd.Parameters.AddWithValue("@pdate", DateTime.Now.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@status", "Paid");
 
-            MessageBox.Show("Record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ResetForm();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Payment record added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetForm();
+                LoadPaymentsFromDb();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // UPDATE BUTTON
@@ -152,27 +208,42 @@ namespace Student_Management_Syestem
             if (!decimal.TryParse(textBox1.Text.Trim(), out decimal amount) || amount <= 0)
             { MessageBox.Show("Please enter a valid amount.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            // Update in local table
-            DataRow[] rows = _paymentTable.Select("PaymentID = " + _selectedPaymentId);
-            if (rows.Length > 0)
+            try
             {
-                DataRow row = rows[0];
-                row["StudentID"] = studentId;
-                row["StudentName"] = studentName;
-                row["PaymentMode"] = paymentMode;
-                row["ChequeNo"] = chequeNo;
-                row["BankName"] = bankName;
-                row["IsInstallment"] = isInstallment;
-                row["InstallmentNo"] = installmentNo;
-                row["Amount"] = amount;
-                _paymentTable.AcceptChanges();
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string updateSql = "UPDATE Payment SET StudentID=@sid, StudentName=@sname, PaymentMode=@mode, ChequeNo=@chq, BankName=@bank, IsInstallment=@isInst, InstallmentNo=@instNo, Amount=@amt " +
+                                       "WHERE PaymentID=@id";
+                    using (SqlCommand cmd = new SqlCommand(updateSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", _selectedPaymentId);
+                        cmd.Parameters.AddWithValue("@sid", studentId);
+                        cmd.Parameters.AddWithValue("@sname", studentName);
+                        cmd.Parameters.AddWithValue("@mode", paymentMode);
+                        cmd.Parameters.AddWithValue("@chq", chequeNo);
+                        cmd.Parameters.AddWithValue("@bank", bankName);
+                        cmd.Parameters.AddWithValue("@isInst", isInstallment);
+                        cmd.Parameters.AddWithValue("@instNo", installmentNo);
+                        cmd.Parameters.AddWithValue("@amt", amount);
 
-                MessageBox.Show("Record updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetForm();
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Payment record updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetForm();
+                            LoadPaymentsFromDb();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Record not found to update.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Record not found.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -182,16 +253,35 @@ namespace Student_Management_Syestem
             if (_selectedPaymentId <= 0)
             { MessageBox.Show("Please select a row from the table to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
-            if (MessageBox.Show("Are you sure you want to delete this record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this payment record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-            DataRow[] rows = _paymentTable.Select("PaymentID = " + _selectedPaymentId);
-            if (rows.Length > 0)
+            try
             {
-                rows[0].Delete();
-                _paymentTable.AcceptChanges();
-                MessageBox.Show("Record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetForm();
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    conn.Open();
+                    string deleteSql = "DELETE FROM Payment WHERE PaymentID = @id";
+                    using (SqlCommand cmd = new SqlCommand(deleteSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", _selectedPaymentId);
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Record deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ResetForm();
+                            LoadPaymentsFromDb();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Record not found to delete.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -207,30 +297,28 @@ namespace Student_Management_Syestem
                 return;
             }
 
-            DataView dv = new DataView(_paymentTable);
-            dv.RowFilter = string.Format(
-                "StudentID LIKE '%{0}%' OR StudentName LIKE '%{0}%'", query);
+            if (_paymentTable != null)
+            {
+                DataView dv = new DataView(_paymentTable);
+                dv.RowFilter = string.Format(
+                    "StudentID LIKE '%{0}%' OR StudentName LIKE '%{0}%'", query.Replace("'", "''"));
 
-            dgvStudents.DataSource = dv;
+                dgvStudents.DataSource = dv;
 
-            if (dgvStudents.Rows.Count == 0)
-                MessageBox.Show("No records found matching: " + query, "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dv.Count == 0)
+                    MessageBox.Show("No records found matching: " + query, "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         // RESET BUTTON
         private void button6_Click(object sender, EventArgs e)
         {
             ResetForm();
-            dgvStudents.DataSource = _paymentTable;
+            LoadPaymentsFromDb();
         }
 
-        // CANCEL BUTTON
+        // CANCEL / BACK BUTTON
         private void button5_Click(object sender, EventArgs e)
-        {
-            ReturnToDashboard();
-        }
-
-        private void Form6_FormClosingCustom(object sender, FormClosingEventArgs e)
         {
             ReturnToDashboard();
         }
@@ -317,4 +405,3 @@ namespace Student_Management_Syestem
         }
     }
 }
-

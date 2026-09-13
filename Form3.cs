@@ -14,10 +14,10 @@ namespace Student_Management_Syestem
    
     public partial class Signup : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
         public Signup()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += Signup_FormClosing;
         }
 
@@ -57,24 +57,55 @@ namespace Student_Management_Syestem
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = DbHelper.GetConnection())
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty)";
+                    string role = "Student";
+                    if (textBox3.Text.Trim().ToLower().Contains("admin") || textBox6.Text.Trim().ToLower().Contains("admin"))
+                    {
+                        role = "Admin";
+                    }
 
-                    SqlCommand command = new SqlCommand(query, connection);
+                    string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty, Role) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty, @role)";
 
-                    command.Parameters.AddWithValue("@firstname", textBox1.Text.Trim());
-                    command.Parameters.AddWithValue("@lastname", textBox2.Text.Trim());
-                    command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
-                    command.Parameters.AddWithValue("@password", textBox4.Text.Trim());
-                    command.Parameters.AddWithValue("@idnumber", textBox5.Text.Trim());
-                    command.Parameters.AddWithValue("@faculty", textBox6.Text.Trim());
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@firstname", textBox1.Text.Trim());
+                        command.Parameters.AddWithValue("@lastname", textBox2.Text.Trim());
+                        command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
+                        command.Parameters.AddWithValue("@password", textBox4.Text.Trim());
+                        int idNum = 0;
+                        int.TryParse(textBox5.Text.Trim(), out idNum);
+                        command.Parameters.AddWithValue("@idnumber", idNum);
+                        command.Parameters.AddWithValue("@faculty", textBox6.Text.Trim());
+                        command.Parameters.AddWithValue("@role", role);
 
-                    command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+                    }
 
-                    MessageBox.Show("Sign up successfully!");
+                    // If a student signed up, also create a student record so they appear in student lists
+                    int studentId = 0;
+                    if (int.TryParse(textBox5.Text.Trim(), out studentId) && studentId > 0)
+                    {
+                        string fullName = (textBox1.Text.Trim() + " " + textBox2.Text.Trim()).Trim();
+                        string addStudentSql = @"
+IF NOT EXISTS (SELECT 1 FROM Student WHERE Studentid = @id)
+BEGIN
+    INSERT INTO Student (Studentid, Fullname, email, phone, address)
+    VALUES (@id, @name, @email, '', @faculty);
+END";
+                        using (SqlCommand cmdStudent = new SqlCommand(addStudentSql, connection))
+                        {
+                            cmdStudent.Parameters.AddWithValue("@id", studentId);
+                            cmdStudent.Parameters.AddWithValue("@name", fullName);
+                            cmdStudent.Parameters.AddWithValue("@email", textBox3.Text.Trim());
+                            cmdStudent.Parameters.AddWithValue("@faculty", textBox6.Text.Trim());
+                            cmdStudent.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Sign up successfully! You can now log in.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Loginform login = new Loginform();
                     login.Show();
@@ -83,7 +114,7 @@ namespace Student_Management_Syestem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Error: " + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
