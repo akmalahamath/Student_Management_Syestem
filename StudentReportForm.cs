@@ -1,4 +1,6 @@
 using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,185 +8,149 @@ namespace Student_Management_Syestem
 {
     public partial class StudentReportForm : Form
     {
+        private DataGridView dgvStudents;
+        private TextBox txtSearch;
+        private Label lblTotalStats;
+        private DataTable _studentDt;
+
         public StudentReportForm()
         {
             InitializeComponent();
+            SetupUi();
+            LoadStudentData();
+        }
 
-            // =========================
-            // FORM SETTINGS
-            // =========================
-            this.BackColor = Color.AliceBlue;
+        private void SetupUi()
+        {
             this.Text = "Student Report";
-            this.Size = new Size(800, 500);
-            this.StartPosition = FormStartPosition.CenterScreen;
 
+            // Title
+            Label title = new Label();
+            title.Text = "STUDENT DIRECTORY REPORT";
+            title.Font = new Font("Segoe UI", 20, FontStyle.Bold);
+            title.ForeColor = Color.DarkBlue;
+            title.AutoSize = false;
+            title.TextAlign = ContentAlignment.MiddleCenter;
+            title.Location = new Point(20, 15);
+            title.Size = new Size(935, 45);
+            this.Controls.Add(title);
 
-            // =========================
-            // STUDENT TABLE
-            // =========================
-            dgvStudents.ColumnCount = 5;
+            // Search label & box
+            Label lblSearch = new Label();
+            lblSearch.Text = "Search:";
+            lblSearch.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            lblSearch.Location = new Point(30, 72);
+            lblSearch.Size = new Size(70, 25);
+            this.Controls.Add(lblSearch);
 
-            dgvStudents.Columns[0].Name = "Student ID";
-            dgvStudents.Columns[1].Name = "Name";
-            dgvStudents.Columns[2].Name = "Gender";
-            dgvStudents.Columns[3].Name = "Email";
-            dgvStudents.Columns[4].Name = "Phone";
+            txtSearch = new TextBox();
+            txtSearch.Font = new Font("Segoe UI", 10);
+            txtSearch.Location = new Point(105, 68);
+            txtSearch.Size = new Size(300, 30);
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+            this.Controls.Add(txtSearch);
 
-            dgvStudents.Rows.Add(
-                "S001", "John", "Male", "john@gmail.com", "0771234567");
+            // Stats summary label
+            lblTotalStats = new Label();
+            lblTotalStats.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            lblTotalStats.ForeColor = Color.DarkGreen;
+            lblTotalStats.TextAlign = ContentAlignment.MiddleRight;
+            lblTotalStats.Location = new Point(450, 70);
+            lblTotalStats.Size = new Size(495, 28);
+            this.Controls.Add(lblTotalStats);
 
-            dgvStudents.Rows.Add(
-                "S002", "Anna", "Female", "anna@gmail.com", "0772345678");
-
-            dgvStudents.Rows.Add(
-                "S003", "David", "Male", "david@gmail.com", "0773456789");
-
-
-            // Table settings
-            dgvStudents.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
+            // DataGridView
+            dgvStudents = new DataGridView();
+            dgvStudents.Location = new Point(30, 110);
+            dgvStudents.Size = new Size(915, 540);
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStudents.AllowUserToAddRows = false;
             dgvStudents.ReadOnly = true;
             dgvStudents.RowHeadersVisible = false;
-            dgvStudents.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
-
-            dgvStudents.Location = new Point(20, 90);
-            dgvStudents.Size = new Size(760, 310);
-
-            dgvStudents.Anchor =
-                AnchorStyles.Top |
-                AnchorStyles.Left |
-                AnchorStyles.Right;
-
-
-            // =========================
-            // TABLE HEADER STYLE
-            // =========================
-            dgvStudents.ColumnHeadersDefaultCellStyle.BackColor =
-                Color.SteelBlue;
-
-            dgvStudents.ColumnHeadersDefaultCellStyle.ForeColor =
-                Color.White;
-
-            dgvStudents.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Arial", 10, FontStyle.Bold);
-
-            dgvStudents.ColumnHeadersHeight = 35;
-
+            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudents.EnableHeadersVisualStyles = false;
+            dgvStudents.ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            dgvStudents.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvStudents.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvStudents.ColumnHeadersHeight = 35;
+            dgvStudents.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F);
+            dgvStudents.RowTemplate.Height = 28;
+            dgvStudents.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
+            dgvStudents.DefaultCellStyle.SelectionForeColor = Color.Black;
+            this.Controls.Add(dgvStudents);
 
-
-            // =========================
-            // TABLE ROW STYLE
-            // =========================
-            dgvStudents.DefaultCellStyle.Font =
-                new Font("Arial", 10);
-
-            dgvStudents.RowTemplate.Height = 30;
-
-            dgvStudents.DefaultCellStyle.SelectionBackColor =
-                Color.LightSteelBlue;
-
-            dgvStudents.DefaultCellStyle.SelectionForeColor =
-                Color.Black;
-
-
-            // =========================
-            // TITLE
-            // =========================
-            Label title = new Label();
-
-            title.Text = "STUDENT REPORT";
-
-            title.Font =
-                new Font("Arial", 20, FontStyle.Bold);
-
-            title.ForeColor =
-                Color.DarkBlue;
-
-            title.AutoSize = false;
-
-            title.TextAlign =
-                ContentAlignment.MiddleCenter;
-
-            title.Location =
-                new Point(20, 20);
-
-            title.Size =
-                new Size(760, 50);
-
-            this.Controls.Add(title);
-
-
-            // =========================
-            // BACK BUTTON
-            // =========================
+            // Back button
             Button back = new Button();
-
-            back.Text = "Back";
-
-            back.Size =
-                new Size(120, 40);
-
-            // Moved slightly higher
-            back.Location =
-                new Point(20, 415);
-
-            back.BackColor =
-                Color.SteelBlue;
-
-            back.ForeColor =
-                Color.White;
-
-            back.Font =
-                new Font("Arial", 10, FontStyle.Bold);
-
-            back.FlatStyle =
-                FlatStyle.Flat;
-
+            back.Text = "Back to Report Hub";
+            back.Size = new Size(180, 42);
+            back.Location = new Point(30, 665);
+            back.BackColor = Color.SteelBlue;
+            back.ForeColor = Color.White;
+            back.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            back.FlatStyle = FlatStyle.Flat;
             back.FlatAppearance.BorderSize = 0;
+            back.Cursor = Cursors.Hand;
+            back.Click += (s, e) => ReturnToReportHub();
+            this.Controls.Add(back);
 
+            this.FormClosing += (s, e) => ReturnToReportHub();
+        }
 
+        private void LoadStudentData()
+        {
             try
             {
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout=30";
-                using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+                using (SqlConnection conn = DbHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = "SELECT Studentid, Fullname, email, phone FROM Student";
-                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
-                    using (System.Data.SqlClient.SqlDataReader r = cmd.ExecuteReader())
+                    string query = @"SELECT 
+                                        Studentid AS [Student ID], 
+                                        Fullname AS [Full Name], 
+                                        email AS [Email], 
+                                        phone AS [Phone], 
+                                        address AS [Address] 
+                                     FROM Student 
+                                     ORDER BY Studentid";
+                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
-                        if (r.HasRows)
-                        {
-                            dgvStudents.Rows.Clear();
-                            while (r.Read())
-                            {
-                                dgvStudents.Rows.Add(r[0].ToString(), r[1].ToString(), "N/A", r[2].ToString(), r[3].ToString());
-                            }
-                        }
+                        _studentDt = new DataTable();
+                        da.Fill(_studentDt);
+                        dgvStudents.DataSource = _studentDt;
+                        UpdateSummary();
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Fallback to sample rows if DB is unavailable
+                MessageBox.Show("Error loading students: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
-            // Back button click
-            back.Click += (s, e) =>
+        private void UpdateSummary()
+        {
+            if (_studentDt != null)
             {
-                ReturnToReportHub();
-            };
+                int count = _studentDt.DefaultView.Count;
+                lblTotalStats.Text = $"Showing {count} Student(s)";
+            }
+        }
 
-            this.FormClosing += (s, e) =>
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (_studentDt == null) return;
+
+            string search = txtSearch.Text.Trim().Replace("'", "''");
+            if (string.IsNullOrEmpty(search))
             {
-                ReturnToReportHub();
-            };
-
-            this.Controls.Add(back);
+                _studentDt.DefaultView.RowFilter = "";
+            }
+            else
+            {
+                _studentDt.DefaultView.RowFilter = string.Format(
+                    "Convert([Student ID], 'System.String') LIKE '%{0}%' OR [Full Name] LIKE '%{0}%' OR [Email] LIKE '%{0}%' OR [Phone] LIKE '%{0}%' OR [Address] LIKE '%{0}%'",
+                    search);
+            }
+            UpdateSummary();
         }
 
         private bool _isReturning = false;
@@ -206,12 +172,6 @@ namespace Student_Management_Syestem
             ReportHubForm report = new ReportHubForm();
             report.Show();
             this.Dispose();
-        }
-
-        private void StudentReportForm_Load(
-            object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -199,7 +199,7 @@ namespace Student_Management_Syestem
             this.lblEntrollmentTitle.Name = "lblEntrollmentTitle";
             this.lblEntrollmentTitle.Size = new System.Drawing.Size(174, 28);
             this.lblEntrollmentTitle.TabIndex = 17;
-            this.lblEntrollmentTitle.Text = "ENTROLLMENTS";
+            this.lblEntrollmentTitle.Text = "ENROLLMENTS";
             // 
             // panel4
             // 
@@ -300,7 +300,7 @@ namespace Student_Management_Syestem
             this.btnEnrollment.Name = "btnEnrollment";
             this.btnEnrollment.Size = new System.Drawing.Size(240, 50);
             this.btnEnrollment.TabIndex = 10;
-            this.btnEnrollment.Text = "ENTROLL";
+            this.btnEnrollment.Text = "ENROLL";
             this.btnEnrollment.UseVisualStyleBackColor = false;
             this.btnEnrollment.Click += new System.EventHandler(this.btnEnrollment_Click);
             // 
@@ -434,10 +434,8 @@ namespace Student_Management_Syestem
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(891, 529);
-            this.MinimumSize = new System.Drawing.Size(891, 529);
-            this.MaximumSize = new System.Drawing.Size(888, 649);
-            this.MinimumSize = new System.Drawing.Size(888, 649);
+            this.MaximumSize = new System.Drawing.Size(997, 800);
+            this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "Dashboardform";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

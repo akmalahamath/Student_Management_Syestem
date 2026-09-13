@@ -16,6 +16,7 @@ namespace Student_Management_Syestem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DbHelper.InitializeDatabase();
             Application.Run(new Loginform());
         }
     }

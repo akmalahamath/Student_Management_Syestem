@@ -40,6 +40,8 @@ namespace Student_Management_Syestem
             this.Font = new System.Drawing.Font("Arial", 7.8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(997, 800);
+            this.MinimumSize = new System.Drawing.Size(997, 800);
             this.Name = "ReportHubForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports Hub";

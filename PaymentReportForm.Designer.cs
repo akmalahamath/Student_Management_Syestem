@@ -1,6 +1,6 @@
 namespace Student_Management_Syestem
 {
-    partial class EnrollmentReportForm
+    partial class PaymentReportForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Student_Management_Syestem
         {
             this.SuspendLayout();
             // 
-            // EnrollmentReportForm
+            // PaymentReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -40,9 +40,9 @@ namespace Student_Management_Syestem
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(997, 800);
             this.MinimumSize = new System.Drawing.Size(997, 800);
-            this.Name = "EnrollmentReportForm";
+            this.Name = "PaymentReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Enrollment Report";
+            this.Text = "Payment Report";
             this.ResumeLayout(false);
 
         }
