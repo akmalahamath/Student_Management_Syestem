@@ -51,7 +51,7 @@ namespace Student_Management_Syestem
             Fprm7 course = new Fprm7();
             course.Show();
             this.Hide();
-
+        }
 
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
