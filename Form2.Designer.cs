@@ -64,6 +64,7 @@
             this.lblWelcomeTitle.AutoSize = true;
             this.lblWelcomeTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcomeTitle.Location = new System.Drawing.Point(12, 60);
+            this.lblWelcomeTitle.Location = new System.Drawing.Point(11, 68);
             this.lblWelcomeTitle.Name = "lblWelcomeTitle";
             this.lblWelcomeTitle.Size = new System.Drawing.Size(582, 28);
             this.lblWelcomeTitle.TabIndex = 2;
@@ -76,6 +77,10 @@
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(280, 168);
+            this.pictureBox1.Location = new System.Drawing.Point(632, -42);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(266, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -89,6 +94,10 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(216, 112);
+            this.panel1.Location = new System.Drawing.Point(306, 166);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(216, 126);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -98,6 +107,7 @@
             this.lblStudentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblStudentCount.Location = new System.Drawing.Point(69, 57);
+            this.lblStudentCount.Location = new System.Drawing.Point(60, 66);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(78, 37);
             this.lblStudentCount.TabIndex = 16;
@@ -108,6 +118,7 @@
             this.lblStudentTitle.AutoSize = true;
             this.lblStudentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentTitle.Location = new System.Drawing.Point(8, 23);
+            this.lblStudentTitle.Location = new System.Drawing.Point(5, 31);
             this.lblStudentTitle.Name = "lblStudentTitle";
             this.lblStudentTitle.Size = new System.Drawing.Size(190, 28);
             this.lblStudentTitle.TabIndex = 15;
@@ -122,6 +133,10 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(213, 110);
+            this.panel2.Location = new System.Drawing.Point(597, 166);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(220, 126);
             this.panel2.TabIndex = 5;
             // 
             // lblCourseCount
@@ -130,6 +145,7 @@
             this.lblCourseCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourseCount.ForeColor = System.Drawing.Color.Navy;
             this.lblCourseCount.Location = new System.Drawing.Point(69, 54);
+            this.lblCourseCount.Location = new System.Drawing.Point(70, 65);
             this.lblCourseCount.Name = "lblCourseCount";
             this.lblCourseCount.Size = new System.Drawing.Size(78, 37);
             this.lblCourseCount.TabIndex = 17;
@@ -140,6 +156,7 @@
             this.lblCourseTitle.AutoSize = true;
             this.lblCourseTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourseTitle.Location = new System.Drawing.Point(16, 22);
+            this.lblCourseTitle.Location = new System.Drawing.Point(15, 34);
             this.lblCourseTitle.Name = "lblCourseTitle";
             this.lblCourseTitle.Size = new System.Drawing.Size(175, 28);
             this.lblCourseTitle.TabIndex = 16;
@@ -154,6 +171,10 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(216, 112);
+            this.panel3.Location = new System.Drawing.Point(306, 324);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(216, 126);
             this.panel3.TabIndex = 5;
             // 
             // lblEntrollmentCount
@@ -162,6 +183,7 @@
             this.lblEntrollmentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrollmentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblEntrollmentCount.Location = new System.Drawing.Point(69, 58);
+            this.lblEntrollmentCount.Location = new System.Drawing.Point(69, 62);
             this.lblEntrollmentCount.Name = "lblEntrollmentCount";
             this.lblEntrollmentCount.Size = new System.Drawing.Size(78, 37);
             this.lblEntrollmentCount.TabIndex = 18;
@@ -172,6 +194,7 @@
             this.lblEntrollmentTitle.AutoSize = true;
             this.lblEntrollmentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrollmentTitle.Location = new System.Drawing.Point(16, 23);
+            this.lblEntrollmentTitle.Location = new System.Drawing.Point(16, 32);
             this.lblEntrollmentTitle.Name = "lblEntrollmentTitle";
             this.lblEntrollmentTitle.Size = new System.Drawing.Size(174, 28);
             this.lblEntrollmentTitle.TabIndex = 17;
@@ -186,6 +209,10 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(213, 110);
+            this.panel4.Location = new System.Drawing.Point(597, 325);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 126);
             this.panel4.TabIndex = 6;
             // 
             // lblPaymentCount
@@ -194,6 +221,7 @@
             this.lblPaymentCount.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaymentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblPaymentCount.Location = new System.Drawing.Point(72, 54);
+            this.lblPaymentCount.Location = new System.Drawing.Point(72, 61);
             this.lblPaymentCount.Name = "lblPaymentCount";
             this.lblPaymentCount.Size = new System.Drawing.Size(78, 37);
             this.lblPaymentCount.TabIndex = 19;
@@ -204,6 +232,7 @@
             this.lblPaymentTitle.AutoSize = true;
             this.lblPaymentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaymentTitle.Location = new System.Drawing.Point(48, 23);
+            this.lblPaymentTitle.Location = new System.Drawing.Point(48, 32);
             this.lblPaymentTitle.Name = "lblPaymentTitle";
             this.lblPaymentTitle.Size = new System.Drawing.Size(124, 28);
             this.lblPaymentTitle.TabIndex = 18;
@@ -214,6 +243,7 @@
             this.lbldashboard.AutoSize = true;
             this.lbldashboard.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldashboard.Location = new System.Drawing.Point(10, 10);
+            this.lbldashboard.Location = new System.Drawing.Point(11, 14);
             this.lbldashboard.Name = "lbldashboard";
             this.lbldashboard.Size = new System.Drawing.Size(215, 41);
             this.lbldashboard.TabIndex = 7;
@@ -232,9 +262,14 @@
             this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Size = new System.Drawing.Size(232, 46);
+            this.btnStudents.Location = new System.Drawing.Point(17, 187);
+            this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudents.Name = "btnStudents";
+            this.btnStudents.Size = new System.Drawing.Size(240, 60);
             this.btnStudents.TabIndex = 8;
             this.btnStudents.Text = "STUDENT";
             this.btnStudents.UseVisualStyleBackColor = false;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnCourses
             // 
@@ -249,9 +284,14 @@
             this.btnCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCourses.Name = "btnCourses";
             this.btnCourses.Size = new System.Drawing.Size(232, 46);
+            this.btnCourses.Location = new System.Drawing.Point(17, 266);
+            this.btnCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCourses.Name = "btnCourses";
+            this.btnCourses.Size = new System.Drawing.Size(240, 60);
             this.btnCourses.TabIndex = 9;
             this.btnCourses.Text = "COURSE";
             this.btnCourses.UseVisualStyleBackColor = false;
+            this.btnCourses.Click += new System.EventHandler(this.btnCourses_Click);
             // 
             // btnEnrollment
             // 
@@ -266,9 +306,14 @@
             this.btnEnrollment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnrollment.Name = "btnEnrollment";
             this.btnEnrollment.Size = new System.Drawing.Size(232, 46);
+            this.btnEnrollment.Location = new System.Drawing.Point(17, 346);
+            this.btnEnrollment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEnrollment.Name = "btnEnrollment";
+            this.btnEnrollment.Size = new System.Drawing.Size(240, 60);
             this.btnEnrollment.TabIndex = 10;
             this.btnEnrollment.Text = "ENTROLL";
             this.btnEnrollment.UseVisualStyleBackColor = false;
+            this.btnEnrollment.Click += new System.EventHandler(this.btnEnrollment_Click);
             // 
             // btnPayments
             // 
@@ -283,9 +328,14 @@
             this.btnPayments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPayments.Name = "btnPayments";
             this.btnPayments.Size = new System.Drawing.Size(232, 46);
+            this.btnPayments.Location = new System.Drawing.Point(17, 427);
+            this.btnPayments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPayments.Name = "btnPayments";
+            this.btnPayments.Size = new System.Drawing.Size(240, 60);
             this.btnPayments.TabIndex = 11;
             this.btnPayments.Text = "PAYMENT";
             this.btnPayments.UseVisualStyleBackColor = false;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
             // 
             // btnReports
             // 
@@ -300,6 +350,10 @@
             this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(232, 46);
+            this.btnReports.Location = new System.Drawing.Point(17, 508);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(240, 60);
             this.btnReports.TabIndex = 12;
             this.btnReports.Text = "REPORT";
             this.btnReports.UseVisualStyleBackColor = false;
@@ -318,6 +372,10 @@
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(232, 46);
+            this.btnDashboard.Location = new System.Drawing.Point(17, 114);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(240, 60);
             this.btnDashboard.TabIndex = 13;
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -335,6 +393,10 @@
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(139, 47);
+            this.btnLogout.Location = new System.Drawing.Point(686, 508);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(153, 64);
             this.btnLogout.TabIndex = 14;
             this.btnLogout.Text = "LOGOUT";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -346,6 +408,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(468, 422);
+            this.label1.Location = new System.Drawing.Point(451, 524);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 28);
             this.label1.TabIndex = 15;
@@ -356,8 +419,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 482);
+            this.ClientSize = new System.Drawing.Size(870, 602);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnPayments);
@@ -366,7 +431,6 @@
             this.Controls.Add(this.btnStudents);
             this.Controls.Add(this.lbldashboard);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
@@ -377,6 +441,8 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(891, 529);
             this.MinimumSize = new System.Drawing.Size(891, 529);
+            this.MaximumSize = new System.Drawing.Size(888, 649);
+            this.MinimumSize = new System.Drawing.Size(888, 649);
             this.Name = "Dashboardform";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
