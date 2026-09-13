@@ -182,6 +182,9 @@
     <EmbeddedResource Include="Fprm7.resx">
       <DependentUpon>Fprm7.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentReportForm.resx">
+      <DependentUpon>PaymentReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

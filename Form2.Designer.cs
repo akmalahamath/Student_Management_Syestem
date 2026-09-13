@@ -100,7 +100,7 @@ namespace Student_Management_Syestem
             this.lblStudentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblStudentCount.Location = new System.Drawing.Point(95, 75);
             this.lblStudentCount.Name = "lblStudentCount";
-            this.lblStudentCount.Size = new System.Drawing.Size(99, 46);
+            this.lblStudentCount.Size = new System.Drawing.Size(96, 46);
             this.lblStudentCount.TabIndex = 16;
             this.lblStudentCount.Text = "1500";
             // 
@@ -132,7 +132,7 @@ namespace Student_Management_Syestem
             this.lblCourseCount.ForeColor = System.Drawing.Color.Navy;
             this.lblCourseCount.Location = new System.Drawing.Point(95, 75);
             this.lblCourseCount.Name = "lblCourseCount";
-            this.lblCourseCount.Size = new System.Drawing.Size(99, 46);
+            this.lblCourseCount.Size = new System.Drawing.Size(96, 46);
             this.lblCourseCount.TabIndex = 17;
             this.lblCourseCount.Text = "1500";
             // 
@@ -164,7 +164,7 @@ namespace Student_Management_Syestem
             this.lblEntrollmentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblEntrollmentCount.Location = new System.Drawing.Point(95, 75);
             this.lblEntrollmentCount.Name = "lblEntrollmentCount";
-            this.lblEntrollmentCount.Size = new System.Drawing.Size(99, 46);
+            this.lblEntrollmentCount.Size = new System.Drawing.Size(96, 46);
             this.lblEntrollmentCount.TabIndex = 18;
             this.lblEntrollmentCount.Text = "1500";
             // 
@@ -174,7 +174,7 @@ namespace Student_Management_Syestem
             this.lblEntrollmentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrollmentTitle.Location = new System.Drawing.Point(68, 25);
             this.lblEntrollmentTitle.Name = "lblEntrollmentTitle";
-            this.lblEntrollmentTitle.Size = new System.Drawing.Size(174, 28);
+            this.lblEntrollmentTitle.Size = new System.Drawing.Size(161, 28);
             this.lblEntrollmentTitle.TabIndex = 17;
             this.lblEntrollmentTitle.Text = "ENROLLMENTS";
             // 
@@ -196,7 +196,7 @@ namespace Student_Management_Syestem
             this.lblPaymentCount.ForeColor = System.Drawing.Color.Navy;
             this.lblPaymentCount.Location = new System.Drawing.Point(95, 75);
             this.lblPaymentCount.Name = "lblPaymentCount";
-            this.lblPaymentCount.Size = new System.Drawing.Size(99, 46);
+            this.lblPaymentCount.Size = new System.Drawing.Size(96, 46);
             this.lblPaymentCount.TabIndex = 19;
             this.lblPaymentCount.Text = "1500";
             // 
@@ -204,7 +204,7 @@ namespace Student_Management_Syestem
             // 
             this.lblPaymentTitle.AutoSize = true;
             this.lblPaymentTitle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentTitle.Location = new System.Drawing.Point(92, 25);
+            this.lblPaymentTitle.Location = new System.Drawing.Point(85, 25);
             this.lblPaymentTitle.Name = "lblPaymentTitle";
             this.lblPaymentTitle.Size = new System.Drawing.Size(124, 28);
             this.lblPaymentTitle.TabIndex = 18;
@@ -365,7 +365,6 @@ namespace Student_Management_Syestem
             // 
             // label1
             // 
-            this.label1.AutoSize = false;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.LimeGreen;
             this.label1.Location = new System.Drawing.Point(20, 648);
@@ -379,7 +378,7 @@ namespace Student_Management_Syestem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 744);
+            this.ClientSize = new System.Drawing.Size(979, 753);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.panel3);
