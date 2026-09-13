@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -13,6 +13,16 @@ namespace Student_Management_Syestem
         public Form6()
         {
             InitializeComponent();
+            this.FormClosing += Form6_FormClosing;
+        }
+
+        private void Form6_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Dashboardform dashboard = new Dashboardform();
+                dashboard.Show();
+            }
         }
 
         private void Student_Load(object sender, EventArgs e)

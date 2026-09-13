@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +25,16 @@ namespace Student_Management_Syestem
             this.MaximumSize = new Size(997, 800);
             this.MinimumSize = new Size(997, 800);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormClosing += Form5_FormClosing;
+        }
+
+        private void Form5_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Dashboardform dashboard = new Dashboardform();
+                dashboard.Show();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -64,32 +74,50 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                MessageBox.Show("Please enter Student ID, Student Name, and Course.");
+                return;
+            }
+
+            if (!int.TryParse(textBox1.Text.Trim(), out int studentId))
+            {
+                MessageBox.Show("Student ID must be a valid number.");
+                return;
+            }
+
             if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null)
             {
                 MessageBox.Show("Please select a value for Academic Year, Semester, and Status.");
                 return; 
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string query = "INSERT INTO Enrollment (StudentID, StudentName, Course, AcademicYear, Semester, EnrollmentDate, Status) " +
-                               "VALUES (@StudentID, @StudentName, @Course, @AcademicYear, @Semester, @EnrollmentDate, @Status)";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@StudentID", textBox1.Text);
-                    command.Parameters.AddWithValue("@StudentName", textBox2.Text);
-                    command.Parameters.AddWithValue("@Course", textBox3.Text);
-                    command.Parameters.AddWithValue("@AcademicYear", comboBox1.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@Semester", comboBox2.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@EnrollmentDate", dateTimePicker1.Value.Date);
-                    command.Parameters.AddWithValue("@Status", comboBox3.SelectedItem.ToString());
+                    connection.Open();
+                    string query = "INSERT INTO Enrollment (StudentID, StudentName, Course, AcademicYear, Semester, EnrollmentDate, Status) " +
+                                   "VALUES (@StudentID, @StudentName, @Course, @AcademicYear, @Semester, @EnrollmentDate, @Status)";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@StudentID", studentId);
+                        command.Parameters.AddWithValue("@StudentName", textBox2.Text.Trim());
+                        command.Parameters.AddWithValue("@Course", textBox3.Text.Trim());
+                        command.Parameters.AddWithValue("@AcademicYear", comboBox1.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@Semester", comboBox2.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@EnrollmentDate", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@Status", comboBox3.SelectedItem.ToString());
 
-                    command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+                    }
                 }
-                connection.Close();
-                MessageBox.Show("Student added successfully!");
+                MessageBox.Show("Enrollment added successfully!");
+                button3_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
             }
         }
 
@@ -126,8 +154,56 @@ namespace Student_Management_Syestem
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                MessageBox.Show("Please enter Student ID, Student Name, and Course.");
+                return;
+            }
 
+            if (!int.TryParse(textBox1.Text.Trim(), out int studentId))
+            {
+                MessageBox.Show("Student ID must be a valid number.");
+                return;
+            }
 
+            if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a value for Academic Year, Semester, and Status.");
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "UPDATE Enrollment SET StudentName=@StudentName, Course=@Course, AcademicYear=@AcademicYear, Semester=@Semester, EnrollmentDate=@EnrollmentDate, Status=@Status WHERE StudentID=@StudentID";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@StudentID", studentId);
+                        command.Parameters.AddWithValue("@StudentName", textBox2.Text.Trim());
+                        command.Parameters.AddWithValue("@Course", textBox3.Text.Trim());
+                        command.Parameters.AddWithValue("@AcademicYear", comboBox1.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@Semester", comboBox2.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@EnrollmentDate", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@Status", comboBox3.SelectedItem.ToString());
+
+                        int rows = command.ExecuteNonQuery();
+                        if (rows > 0)
+                        {
+                            MessageBox.Show("Enrollment updated successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No enrollment record found with Student ID: " + studentId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
         }
     }
 }

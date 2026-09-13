@@ -21,6 +21,7 @@ namespace Student_Management_Syestem
             InitializeComponent();
             this.FormClosing += Student_FormClosing;
             this.textBox6.TextChanged += textBox6_TextChanged;
+            this.dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
         private void Student_FormClosing(object sender, FormClosingEventArgs e)
@@ -36,6 +37,7 @@ namespace Student_Management_Syestem
         {
             LoadStudents();
         }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -84,21 +86,15 @@ namespace Student_Management_Syestem
                 return;
             }
 
-            if (!int.TryParse(textBox1.Text.Trim(), out int studentId))
-            {
-                MessageBox.Show("Student ID must be a valid number.");
-                return;
-            }
-
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "INSERT INTO Student (Studentid, FullName, Email, Phone, Address) VALUES (@Studentid, @Fullname, @email, @phone, @address)";
+                    string query = "INSERT INTO Student (Studentid,FullName, Email, Phone, Address) VALUES (@Studentid,@Fullname, @email, @phone, @address)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Studentid", studentId);
+                        command.Parameters.AddWithValue("@Studentid", textBox1.Text.Trim());
                         command.Parameters.AddWithValue("@Fullname", textBox2.Text.Trim());
                         command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
                         command.Parameters.AddWithValue("@phone", textBox4.Text.Trim());
@@ -106,20 +102,56 @@ namespace Student_Management_Syestem
 
                         command.ExecuteNonQuery();
                     }
+                    MessageBox.Show("Student added successfully!");
+                    button4_Click(sender, e);
+                    LoadStudents();
                 }
-                MessageBox.Show("Student added successfully!");
-                button4_Click(sender, e);
-                LoadStudents();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message);
             }
         }
       
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                if (row.Cells["Studentid"]?.Value != null) textBox1.Text = row.Cells["Studentid"].Value.ToString();
+                if (row.Cells["FullName"]?.Value != null) textBox2.Text = row.Cells["FullName"].Value.ToString();
+                if (row.Cells["Email"]?.Value != null) textBox3.Text = row.Cells["Email"].Value.ToString();
+                if (row.Cells["Phone"]?.Value != null) textBox4.Text = row.Cells["Phone"].Value.ToString();
+                if (row.Cells["Address"]?.Value != null) textBox5.Text = row.Cells["Address"].Value.ToString();
+            }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.DataSource is DataTable dt)
+                {
+                    DataView dv = dt.DefaultView;
+                    string filter = textBox6.Text.Trim().Replace("'", "''");
+                    if (string.IsNullOrEmpty(filter))
+                    {
+                        dv.RowFilter = "";
+                    }
+                    else
+                    {
+                        dv.RowFilter = string.Format("Fullname LIKE '%{0}%' OR Email LIKE '%{0}%' OR Convert(Studentid, 'System.String') LIKE '%{0}%'", filter);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void LoadStudents()
@@ -156,29 +188,6 @@ namespace Student_Management_Syestem
             textBox3.Clear();
             textBox4.Clear();
             textBox5.Clear();
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dataGridView1.DataSource is DataTable dt)
-                {
-                    DataView dv = dt.DefaultView;
-                    string filter = textBox6.Text.Trim().Replace("'", "''");
-                    if (string.IsNullOrEmpty(filter))
-                    {
-                        dv.RowFilter = "";
-                    }
-                    else
-                    {
-                        dv.RowFilter = string.Format("Fullname LIKE '%{0}%' OR email LIKE '%{0}%'", filter);
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
         }
     }
 }

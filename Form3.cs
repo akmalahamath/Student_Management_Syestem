@@ -49,15 +49,9 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text))
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text))
             {
-                MessageBox.Show("Please fill in all required fields (First Name, Email, Password, and ID Number).");
-                return;
-            }
-
-            if (!int.TryParse(textBox5.Text.Trim(), out int idNumber))
-            {
-                MessageBox.Show("ID Number must be a valid integer.");
+                MessageBox.Show("Please fill in First Name, Email, and Password.");
                 return;
             }
 
@@ -75,7 +69,7 @@ namespace Student_Management_Syestem
                     command.Parameters.AddWithValue("@lastname", textBox2.Text.Trim());
                     command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
                     command.Parameters.AddWithValue("@password", textBox4.Text.Trim());
-                    command.Parameters.AddWithValue("@idnumber", idNumber);
+                    command.Parameters.AddWithValue("@idnumber", textBox5.Text.Trim());
                     command.Parameters.AddWithValue("@faculty", textBox6.Text.Trim());
 
                     command.ExecuteNonQuery();
