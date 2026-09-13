@@ -81,7 +81,7 @@ namespace Student_Management_Syestem
             btnBack = new Button();
             btnBack.Text = "Back to Dashboard";
             btnBack.Size = new Size(200, 48);
-            btnBack.Location = new Point(50, 640);
+            btnBack.Location = new Point(50, 520);
             btnBack.BackColor = Color.DarkSlateGray;
             btnBack.ForeColor = Color.White;
             btnBack.Font = new Font("Segoe UI", 11, FontStyle.Bold);

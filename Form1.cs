@@ -62,9 +62,8 @@ namespace Student_Management_Syestem
                 {
                     connection.Open();
 
-                    // Check Signup table (support email or 'admin' shortcut for admin@nsbm.lk)
-                    string query = "SELECT Firstname, Lastname, Role, Email FROM Signup " +
-                                   "WHERE (Email=@email OR (Email='admin@nsbm.lk' AND @email='admin')) AND Password=@password";
+                    // Check Signup table for student credentials
+                    string query = "SELECT Firstname, Lastname, Email FROM Signup WHERE Email=@email AND Password=@password";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -75,19 +74,13 @@ namespace Student_Management_Syestem
                         {
                             if (reader.Read())
                             {
-                                string role = reader["Role"] != DBNull.Value ? reader["Role"].ToString() : "Student";
                                 string firstName = reader["Firstname"] != DBNull.Value ? reader["Firstname"].ToString() : "";
                                 string lastName = reader["Lastname"] != DBNull.Value ? reader["Lastname"].ToString() : "";
                                 string userEmail = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : email;
 
-                                if (email.Equals("admin", StringComparison.OrdinalIgnoreCase) || email.StartsWith("admin@", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    role = "Admin";
-                                }
+                                UserSession.SetUser((firstName + " " + lastName).Trim(), userEmail);
 
-                                UserSession.SetUser(role, (firstName + " " + lastName).Trim(), userEmail);
-
-                                MessageBox.Show("Login Successful! Welcome, " + UserSession.UserName + " (" + UserSession.Role + ").", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Login Successful! Welcome, " + UserSession.UserName + ".", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 textBox1.Clear();
                                 textBox2.Clear();
@@ -98,7 +91,7 @@ namespace Student_Management_Syestem
                             }
                             else
                             {
-                                MessageBox.Show("Invalid Email or Password.\n\nDefault Admin: admin@nsbm.lk / admin123\nDefault Student: student@nsbm.lk / student123", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Invalid Email or Password.\n\nDemo Student: student@nsbm.lk / student123", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }

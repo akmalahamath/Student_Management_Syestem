@@ -32,17 +32,16 @@ namespace Student_Management_Syestem
 
         public void RefreshDashboard()
         {
-            // 1. Enforce Role Permissions
-            bool isAdmin = UserSession.IsAdmin;
-            btnStudents.Visible = isAdmin;
-            btnCourses.Visible = isAdmin;
-            btnEnrollment.Visible = isAdmin;
-            btnPayments.Visible = isAdmin;
-            btnAttendance.Visible = isAdmin;
-            btnReports.Visible = true;
+            // Enable all modules for Student
             btnDashboard.Visible = true;
+            btnStudents.Visible = true;
+            btnCourses.Visible = true;
+            btnEnrollment.Visible = true;
+            btnPayments.Visible = true;
+            btnAttendance.Visible = true;
+            btnReports.Visible = true;
 
-            label1.Text = "Logged in as: " + UserSession.Role + (isAdmin ? "" : " (" + UserSession.UserName + ")");
+            label1.Text = "Logged in as: " + UserSession.UserName;
 
             // 2. Load live metrics from Database
             try
