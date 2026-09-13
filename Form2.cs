@@ -27,6 +27,19 @@ namespace Student_Management_Syestem
             Loginform login = new Loginform();
             login.Show();
             this.Hide();
+<<<<<<< HEAD
+=======
+
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ReportHubForm report = new ReportHubForm();
+            report.Show();
+            this.Hide();
+
+
+>>>>>>> 86b5b1f02e1b013cc468c342a132ffdbd35b8306
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
@@ -41,7 +54,11 @@ namespace Student_Management_Syestem
             Fprm7 course = new Fprm7();
             course.Show();
             this.Hide();
+<<<<<<< HEAD
         } 
+=======
+        }
+>>>>>>> 86b5b1f02e1b013cc468c342a132ffdbd35b8306
 
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
