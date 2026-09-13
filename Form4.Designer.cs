@@ -1,4 +1,4 @@
-﻿namespace Student_Management_Syestem
+namespace Student_Management_Syestem
 {
     partial class Student
     {
@@ -106,6 +106,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(98, 29);
             this.toolStripButton2.Text = "Course";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
             // 
@@ -115,6 +116,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(139, 29);
             this.toolStripButton3.Text = "Entrollment";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
@@ -124,6 +126,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(112, 29);
             this.toolStripButton4.Text = "Payment";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5
             // 
@@ -134,6 +137,7 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(98, 29);
             this.toolStripButton5.Text = "Report";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // label2
             // 

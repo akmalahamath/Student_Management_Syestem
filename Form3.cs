@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +18,16 @@ namespace Student_Management_Syestem
         public Signup()
         {
             InitializeComponent();
+            this.FormClosing += Signup_FormClosing;
+        }
+
+        private void Signup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Loginform login = new Loginform();
+                login.Show();
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -39,30 +49,41 @@ namespace Student_Management_Syestem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text))
             {
-                connection.Open();
+                MessageBox.Show("Please fill in First Name, Email, and Password.");
+                return;
+            }
 
-                string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty)";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
 
-                SqlCommand command = new SqlCommand(query, connection);
+                    string query = "INSERT INTO Signup (Firstname, Lastname, Email, Password, Idnumber, Faculty) VALUES (@firstname, @lastname, @email, @password, @idnumber, @faculty)";
 
-                command.Parameters.AddWithValue("@firstname", textBox1.Text);
-                command.Parameters.AddWithValue("@lastname", textBox2.Text);
-                command.Parameters.AddWithValue("@email", textBox3.Text);
-                command.Parameters.AddWithValue("@password", textBox4.Text);
-                command.Parameters.AddWithValue("@idnumber", textBox5.Text);
-                command.Parameters.AddWithValue("@faculty", textBox6.Text);
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@firstname", textBox1.Text.Trim());
+                    command.Parameters.AddWithValue("@lastname", textBox2.Text.Trim());
+                    command.Parameters.AddWithValue("@email", textBox3.Text.Trim());
+                    command.Parameters.AddWithValue("@password", textBox4.Text.Trim());
+                    command.Parameters.AddWithValue("@idnumber", textBox5.Text.Trim());
+                    command.Parameters.AddWithValue("@faculty", textBox6.Text.Trim());
 
-                connection.Close();
-                MessageBox.Show("Sign up successfully!");
+                    command.ExecuteNonQuery();
 
-                Loginform login = new Loginform();
-                login.Show();
-                this.Hide();
+                    MessageBox.Show("Sign up successfully!");
 
+                    Loginform login = new Loginform();
+                    login.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
             }
         }
     }
